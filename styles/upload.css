@@ -1,0 +1,63 @@
+@font-face{
+    font-family: oxygen_light;
+    src: url("../resources/fonts/oxygen/Oxygen-Light.ttf");
+}
+
+
+
+body{
+    font-family: oxygen_light;
+    background-color: #454654;
+}
+
+.descContainer{
+    width: 65%;
+    margin: auto;
+    height: 45%;
+    background: #7f808f;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.descContainer h1{
+    font-size:  2rem;
+}
+
+.descContainer h2{
+    font-size:  1.5rem;
+}
+
+.descContainer a{
+    text-decoration: none;    
+    color: blue;
+}
+
+.uploadForm{
+    width: 40%;
+    margin: auto;
+    margin-top: 10%;
+    align-items: center;
+    background-color: #7f808f;
+    text-align: center;
+    border-radius: 5px;
+}
+
+#file-uploader{
+    margin-top: 15px;
+}
+
+#form-submit{
+    margin-top: 35px;
+    margin-bottom: 10px;
+    border: none;
+    height: 45px;
+    width: 90px;
+    border-radius: 5px;
+    background: linear-gradient(to right, #7ccaeb 0%, #aa54eb 100%);
+    transition-duration: 0.5s;
+}
+
+#form-submit:hover{
+    cursor: pointer;
+    background: #7df593;
+}
