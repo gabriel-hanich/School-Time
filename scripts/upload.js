@@ -9,7 +9,10 @@ submitButton.addEventListener("click", function(event){
 
     var fr=new FileReader();
     fr.onload = function(){
-        processData(fr.result)
+        data = processData(fr.result);
+        localStorage.setItem("classData", JSON.stringify(data));
+        window.location.href = "../pages/display.html";
+
     };
     
     fr.readAsText(file);
@@ -80,6 +83,5 @@ function processData(data){
 
         }
     }
-
-    console.log(periodClassList)
+    return periodClassList;
 }
