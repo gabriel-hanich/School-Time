@@ -3,55 +3,58 @@
     src: url("../resources/fonts/oxygen/Oxygen-Light.ttf");
 }
 
-
+*{
+    box-sizing: border-box;
+    margin: 0px;
+}
 
 body{
+    margin-top: 10px;
     font-family: oxygen_light;
     background-color: #454654;
 }
 
-.welcomeContainer{
-    width: 60%;
-    margin: auto;
-    background-color: #7f808f;
-    text-align: center;
+
+
+.todayTomorrowTables{
+    display: flex;                  /* establish flex container */
+    flex-direction: row;            /* default value; can be omitted */
+    flex-wrap: nowrap;              /* default value; can be omitted */
+    justify-content: space-between; /* switched from default */
 }
 
-.buttonContainer{
-    width: 15%;
-    margin: auto;
-    margin-top: 100px;
-}
-
-#process_btn{
-    background: #0F2027;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    border: none;
+.bigDay{
     width: 100%;
-    height: 60px;
-    border-radius: 5px;
-    transition: 0.5s ease-in-out;
 }
 
-#process_btn:hover{
-    cursor: pointer;
-    background: #2C5364;
+#todayDiv{
+    margin-left: 15%;
 }
 
-.errorContainer{
-    opacity: 0;
-    align-items: center;
+#tomorrowDiv{
+    margin-right: 15%;
+}
+
+.periodBox{
+    font-size: 0.75rem;
+    border: 1px black solid;   
     text-align: center;
-    width: 60%;
-    margin: auto;
+    width: 300px;
+    display: flex;                  /* establish flex container */
+    flex-direction: row;            /* default value; can be omitted */
+    flex-wrap: nowrap;              /* default value; can be omitted */
+    justify-content: space-between; /* switched from default */   
 }
 
-.errorContainer h2{
-    background: #7a313c;
-    padding: 0;
+
+
+.todayHeading{
+    width: 300px;
+    height: 50px;
+    border-radius: 3px;
+    text-align: center;
+    font-size: 1rem;
+    background-color: #5c5c6a;
+    margin-top: 0px;
 }
 
-.errorContainer.show{
-    opacity: 1;
-}

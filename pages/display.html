@@ -8,21 +8,32 @@
     <link rel="stylesheet" href="../styles/display.css">
 </head>
 <body>
-    <div class="container">
-        <div class="welcomeContainer">
-            <h1>Press the button below to process the data</h1>
-        </div>
-    </div>
-    <div class="buttonContainer">
-        <button id="process_btn">Process</button>
-    </div>
+   <div class="todayTomorrowTables">
+       <div class="bigDay" id="todayDiv">
+            <table id="todayTable">
+                <tr>
+                    <div class="todayHeading">
+                        <h1>Today</h1>
+                    </div>
+                </tr>
+            </table>
+       </div>
 
-    <div class="errorContainer" id="errorBox">
-        <h2>
-            Welp, The local Storage data couldn't be found, ensure you uploaded the file
-        </h2>
-    </div>
 
-    <script src="../scripts/display.js"></script>
+       <div class="bigDay" id="tomorrowDiv">
+            <table id="tomorrowTable">
+                <tr>
+                    <div class="todayHeading">
+                        <h1>Tomorow</h1>
+                    </div>
+                </tr>
+            </table>
+        </div> 
+   </div> <!-- End of the Today Tomororow Tables-->
+    
+
+   <script src="../scripts/display.js"></script>
 </body>
 </html>
+
+

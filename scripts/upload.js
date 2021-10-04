@@ -11,7 +11,7 @@ submitButton.addEventListener("click", function(event){
     fr.onload = function(){
         data = processData(fr.result);
         localStorage.setItem("classData", JSON.stringify(data));
-        window.location.href = "../pages/display.html";
+        window.location.href = "../pages/process.html";
 
     };
     
@@ -20,11 +20,13 @@ submitButton.addEventListener("click", function(event){
 });
 
 class periodClass{
-    constructor(startDate, endDate, desc, summary, location){
+    constructor(startDate, endDate, teacher, period, className, location){
         this.startDate = startDate;
         this.endDate = endDate;
-        this.desc = desc;
-        this.summary = summary;
+        this.teacher = teacher;
+        this.period = period;
+        this.className= className;
+        this.className = className;
         this.location = location
 
     }
@@ -74,11 +76,13 @@ function processData(data){
 
             // Get other pieces of data
             var desc = dataList[i + 5].substring(12);  
-            var summary = dataList[i + 6].substring(8);
-            var location = dataList[i + 7].substring(9)
+            var className = dataList[i + 6].substring(8);
+            var location = dataList[i + 7].substring(9);
+            var teacher = desc.substring(9, desc.indexOf("\\n"))
+            var period = parseInt(desc.substring(desc.indexOf("\\n") + 10))
 
             if(dataList[i+ 8] == "END:VEVENT"){ // Double checks file strucrture before appending list
-                periodClassList.push(new periodClass(startDate, endDate, desc, summary, location));
+                periodClassList.push(new periodClass(startDate, endDate, teacher, period, className, location));
             }
 
         }

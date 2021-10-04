@@ -1,87 +1,69 @@
-var periodDataRaw = JSON.parse(localStorage.getItem("classData"));
-var errorBox = document.getElementById("errorBox");
-var process_btn = document.getElementById("process_btn");
-var daysList = ["monday", "tuesday", "wednesday", "thursday", "friday"]
-var weeksList = ["a", "b"]
+var weekARaw = JSON.parse(localStorage.getItem("weekAList"))
+var weekBRaw = JSON.parse(localStorage.getItem("weekBList"))
 
- 
-
+var thisWeek = "a";
 
 class periodClass{
-    constructor(startDate, endDate, desc, summary, location){
+    constructor(startDate, endDate, teacher, period, className, location){
         this.startDate = startDate;
         this.endDate = endDate;
-        this.desc = desc;
-        this.summary = summary;
+        this.teacher = teacher;
+        this.period = period;
+        this.className= className;
+        this.className = className;
         this.location = location
+
     }
 }
 
-
-function generateTimeTableData(event){
-    periodDataRaw = JSON.parse(localStorage.getItem("classData"));
-
-    if(periodDataRaw == null){ 
-        errorBox.classList.add("show");
-    }else{
-        errorBox.classList.remove("show")
-        console.log("show")
+var weekA = {};
+var weekB = {};
+for(var i = 1; i <= 5; i++){
+    var thisDay = weekARaw[i];
+    var todayList = [];
+    for(k = 0; k<thisDay.length; k++){
+        startDate = new Date(thisDay[k].startDate);
+        endDate = new Date(thisDay[k].endDate);
+        todayList.push(new periodClass(startDate, endDate, thisDay[k].teacher, thisDay[k].period, thisDay[k].className, thisDay[k].location))
     }
-
-    var periodData = [];
-    for(var i = 0; i<periodDataRaw.length; i++){
-        thisPeriod = periodDataRaw[i]
-        startDate = new Date(thisPeriod.startDate);
-        endDate = new Date(thisPeriod.endDate);
-        periodData.push(new periodClass(startDate, endDate, thisPeriod.desc, thisPeriod.summary, thisPeriod.location));
-
-    }
-    periodData.sort(function(a, b){
-        return a.startDate - b.startDate;
-    });
-
-    // Find 2, unique, full weeks
-    var aStartIndex = 0;
-    var bStartIndex = 0;
-    var bEndIndex = 0;
-    for(var i = 0; i < periodData.length; i++){
-        if(periodData[i].startDate.getDay() == 1){ //If the class is on a monday
-            aStartIndex = i;
-            break;
-        }
-    }
-
-    for(var i = 0; i < periodData.length; i++){
-        if(periodData[i].startDate.getDay() == 1){ //If the class is on a monday
-            if(periodData[i].startDate.getDate() != periodData[aStartIndex].startDate.getDate()){ //Ensure the start of week B isn't the same date as the start of week A
-                bStartIndex = i;
-                break;
-            }
-        }
-    }
-
-    //Find end of week b
-    for(var i = bStartIndex; i < periodData.length; i++){
-        if(periodData[i].startDate.getDay() == 5){ //If the class is on a Friday
-            if(periodData[i + 1].startDate.getDay() == 1){ // If the NEXT class is on Monday
-                console.log("YES")
-                bEndIndex = i;
-                break;
-            } 
-        }
-    }
-
-    console.log(periodData[aStartIndex].startDate);
-    console.log(periodData[bStartIndex].startDate);
-    console.log(periodData[bEndIndex].startDate);
-
-
-
-    // for(var weekCount = 0; weekCount < weeksList.length; weekCount++){
-    //     for(var dayCount = 0; dayCount < daysList.length; dayCount++){
-
-    //     }
-    // }
+    weekA[i] = todayList
 }
 
-process_btn.addEventListener("click", generateTimeTableData)
+for(var i = 1; i <= 5; i++){
+    var thisDay = weekBRaw[i];
+    var todayList = [];
+    for(k = 0; k<thisDay.length; k++){
+        startDate = new Date(thisDay[k].startDate);
+        endDate = new Date(thisDay[k].endDate);
+        todayList.push(new periodClass(startDate, endDate, thisDay[k].teacher, thisDay[k].period, thisDay[k].className, thisDay[k].location))
+    }
+    weekB[i] = todayList;
+}
+
+
+var todayTomorrowTables = [document.getElementById("todayTable"), document.getElementById("tomorrowTable")]
+if(thisWeek = "a"){
+    var today = new Date().getDay();
+    console.log(today)
+
+    for(var i= today; i<today + 2; i++){
+        var dayData = weekA[i];
+        for(var k=0; k<dayData.length; k++){
+            var newRow = todayTomorrowTables[i - today].insertRow(-1);
+            var newCell = newRow.insertCell(-1);
+
+            var className = dayData[k].className.substring(dayData[k].className.indexOf(":") + 2)
+            newCell.innerHTML = `
+                        <tr>
+                        <div class="periodBox">
+                            <h2 class="periodNum classData">Period ` + dayData[k].period + `</h2>
+                            <h2 class="className classData">` + className + `</h2>
+                            <h2 class="location classData">` + dayData[k].location + `</h2>
+                            <h2 class="teacher classData">` + dayData[k].teacher + `</h2>
+                        </div>
+                    </tr>
+                    `
+        } 
+    }
+}
+
