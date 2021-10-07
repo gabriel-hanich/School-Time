@@ -1,0 +1,13 @@
+
+body{
+    margin:0px !important;
+}
+
+
+.extensionContainer{
+    width: 600px;
+    height: 400px;
+    background: #6f727c;
+    border: 0px;
+    padding: 0px;
+}
