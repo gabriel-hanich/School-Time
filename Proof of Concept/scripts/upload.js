@@ -40,7 +40,7 @@ function processData(data){
             if(data.substring(i, i+1) == "\n"){
                 dataList.push(data.substring(lastbreak, i -1));
                 lastbreak = i + 1;
-            }
+            } 
         }
     }
 
@@ -55,7 +55,7 @@ function processData(data){
             startMonth = startMonth.toString();
             var startDay = dataList[i + 1].substring(30, 32);
 
-            var startHour = dataList[i + 1].substring(33, 35);
+            var startHour = dataList[i + 1].substring(33, 35);  
             var startMinute = dataList[i+ 1].substring(35, 37);
             
             var startDate = new Date(Date.UTC(startYear, startMonth, startDay, startHour, startMinute ,0));

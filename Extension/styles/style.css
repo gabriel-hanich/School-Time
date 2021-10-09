@@ -1,13 +1,24 @@
 
 body{
     margin:0px !important;
+    background: #6f727c;
 }
-
 
 .extensionContainer{
     width: 600px;
     height: 400px;
-    background: #6f727c;
-    border: 0px;
-    padding: 0px;
+}
+
+
+@font-face {
+    font-family: oxygen-regular;
+    src: url(../resources/fonts/Oxygen-Regular.ttf);
+}
+
+*{
+    font-family: oxygen-regular;
+}
+
+.hidden{
+    display: none;
 }

@@ -6,10 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Upload</title>
     <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/upload.css">
 </head>
 <body>
     <div class="extensionContainer">
-        <h2>YES</h2>
+        <div class="welcomeContainer">
+            <h1>Hello<br>In order to set up School Time, please upload the iCal file below</h1>    
+        </div>
+        <div class="formContainer">
+            <form action="" class="uploadForm">
+                <input type="file" id="fileUpload">
+            </form>
+        </div>
+        
+        <div class="errorMessage hidden" id="uploadErrorBox">
+            <h2>Oh no, Something went wrong</h2>
+        </div>
+
     </div>
+
+    <script src="../scripts/processData.js"></script>
 </body>
 </html>

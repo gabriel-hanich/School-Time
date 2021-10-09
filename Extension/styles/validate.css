@@ -1,0 +1,61 @@
+.headingContainer{
+    width: 85%;
+    margin: auto;
+    text-align: center;
+}
+
+.headingContainer h1{
+    font-size: 1.5rem;
+}
+
+.mondayContainer{
+    width: 35%;
+    margin: auto;
+    align-items: center;
+}
+
+.mondayTable{
+    width: 100%;
+}
+
+.buttonContainer{
+    width: 35%;
+    margin: auto;
+    margin-top: 15px;
+}
+
+.innerButtonContainer{
+    display: flex;
+}
+
+#weekABtn{
+    flex: 1;
+    margin-right: 5px;
+
+    background: #2c3e50;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #3498db, #2c3e50);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #3498db, #2c3e50); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    border: none;
+}
+#weekBBtn{
+    flex: 1;
+    margin-left: 5px;
+    background: #2c3e50;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #3498db, #2c3e50);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #3498db, #2c3e50); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    border: none;
+}
+
+.weekButton{
+    border-radius: 5px;
+    height: 35px;
+    margin-bottom: 30px;
+    transition: all 0.5s ease;
+}
+
+
+
+.weekButton:hover{
+    cursor: pointer;
+   transform: scale(1.15);
+}

@@ -7,7 +7,7 @@
       "default_popup": "index.html",
       "default_title": "REEEE"
     },
-    "permisions":[
-        "storage"
-    ]
+    "permissions": [
+      "storage"
+  ]
 }
