@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your timetable</title>
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/table.css">
+    <link rel="stylesheet" href="../styles/display.css">
+</head>
+<body>
+    <div class="extensionContainer">
+        <div class="headingContainer" id="displayHeading">
+        </div>
+
+        <div class="tableContainer">
+            <div id="todayTableContainer" class="bigTable">
+                <table id="todayTable">
+                    <tr>
+                        <div class="periodBox dayHeading">
+                            <h2>Today</h2>
+                        </div>
+                    </tr>
+                </table>
+            </div>
+            <div id="tomorrowTableContainer" class="bigTable">
+                <table id="tomorrowTable">
+                    <tr>
+                        <div class="periodBox dayHeading">
+                            <h2>Tomorrow</h2>
+                        </div>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div> <!-- End of extension Container-->
+
+    <script src="../scripts/display.js"></script>
+</body>
+</html>

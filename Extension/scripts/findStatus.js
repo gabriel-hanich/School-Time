@@ -1,4 +1,12 @@
-var weekData = localStorage["weekData"];
-if(weekData == undefined){
-    window.location.href = "../pages/validateWeekStatus.html"
+var weekAData = localStorage["weekAData"];
+var debug = false;
+if(weekAData == undefined){
+    if(debug){
+        window.location.href = "../pages/display.html"
+    }else{
+        window.location.href = "../pages/uploadFile.html"
+    }
+}
+else{
+    window.location.href = "../pages/display.html"
 }

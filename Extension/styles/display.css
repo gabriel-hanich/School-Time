@@ -1,0 +1,11 @@
+.tableContainer{
+    width: 90%;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+}
+
+.bigTable{
+    width: 85%;
+    margin: 25px;
+}

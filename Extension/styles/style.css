@@ -22,3 +22,17 @@ body{
 .hidden{
     display: none;
 }
+
+.headingContainer{
+    width: 90%;
+    margin: auto;
+    text-align: center;
+    
+}
+
+.headingContainer h1{
+    font-size: 1.7rem;
+}
+.headingContainer h2{
+    font-size: 1rem;
+}

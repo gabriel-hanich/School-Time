@@ -1,5 +1,5 @@
 var weekAData = JSON.parse(localStorage.getItem("possibleAData"));
-
+var weekBData = JSON.parse(localStorage.getItem("possibleBData"));
 
 class periodClass{
     constructor(datePair, teacher, period, className, location){
@@ -21,7 +21,15 @@ for(var i=0; i<weekAData.length; i++){
     }
     weekA.push(new periodClass(datePair, thisClass.teacher, thisClass.period, thisClass.className, thisClass.location));
 }
-console.log(weekA);
+var weekB = [];
+for(var i=0; i<weekBData.length; i++){
+    var datePair = [];
+    var thisClass = weekAData[i]
+    for(var k=0; k<2; k++){
+        datePair.push(new Date(thisClass.datePair[k]));
+    }
+    weekB.push(new periodClass(datePair, thisClass.teacher, thisClass.period, thisClass.className, thisClass.location));
+}
 
 var table = document.getElementById("mondayTable")
 
@@ -45,4 +53,25 @@ for(var i=0; i<weekA.length; i++){
                             </tr>
                             `
     }
+}
+
+
+
+weekABtn = document.getElementById("weekABtn");
+weekBBtn = document.getElementById("weekBBtn");
+
+weekABtn.addEventListener("click", weekBtnPress);
+weekBBtn.addEventListener("click", weekBtnPress);
+
+function weekBtnPress(event){
+    console.log(event.path[0].id);
+    if(event.path[0].id == "weekABtn"){
+        localStorage.setItem("weekAData", JSON.stringify(weekA));
+        localStorage.setItem("weekBData", JSON.stringify(weekB));
+    }
+    else if(event.path[0].id == "weekBBtn"){
+        localStorage.setItem("weekAData", JSON.stringify(weekB));
+        localStorage.setItem("weekBData", JSON.stringify(weekA));
+    }
+    window.location.href = "../pages/validateCurrentWeek.html";
 }
