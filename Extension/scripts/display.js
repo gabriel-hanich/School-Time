@@ -56,6 +56,8 @@ class periodClass{
 var weekADataRaw = JSON.parse(localStorage.getItem("weekAData"));
 var weekBDataRaw = JSON.parse(localStorage.getItem("weekBData"));
 
+console.log(weekADataRaw)
+
 
 var weekAData = []
 for(var i=0; i<weekADataRaw.length; i++){
@@ -89,7 +91,7 @@ if(isWeekA){
     console.log("A")
     heading.innerHTML = `
     <div class="headingContainer" id="displayHeading">
-    <h1>Welcome, Today is ` + dayNames[today.getDay()] + ` of week A</h1>
+    <h1>Welcome, Today is ` + dayNames[today.getDay()] + ` of Week A</h1>
     </div>
     `
     
@@ -128,7 +130,7 @@ else if(!isWeekA){
     console.log("B")
     heading.innerHTML = `
     <div class="headingContainer" id="displayHeading">
-    <h1>Welcome, Today is ` + dayNames[today.getDay()] + ` of week B</h1>
+    <h1>Welcome, Today is ` + dayNames[today.getDay()] + ` of Week B</h1>
     </div>
     `
     for(var i=0; i<2; i++){

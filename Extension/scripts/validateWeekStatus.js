@@ -24,7 +24,7 @@ for(var i=0; i<weekAData.length; i++){
 var weekB = [];
 for(var i=0; i<weekBData.length; i++){
     var datePair = [];
-    var thisClass = weekAData[i]
+    var thisClass = weekBData[i]
     for(var k=0; k<2; k++){
         datePair.push(new Date(thisClass.datePair[k]));
     }
@@ -63,6 +63,7 @@ weekBBtn = document.getElementById("weekBBtn");
 weekABtn.addEventListener("click", weekBtnPress);
 weekBBtn.addEventListener("click", weekBtnPress);
 
+console.log(weekA)  
 function weekBtnPress(event){
     console.log(event.path[0].id);
     if(event.path[0].id == "weekABtn"){

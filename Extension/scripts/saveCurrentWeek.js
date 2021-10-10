@@ -2,6 +2,7 @@ var aBtn = document.getElementById("weekABtn");
 var BBtn = document.getElementById("weekBBtn");
 
 function isWeekA(){
+    console.log("WEEKA")
     var today = new Date();
     localStorage.setItem("lastWeekADate", today);
     window.location.href = "../pages/display.html"

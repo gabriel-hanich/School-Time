@@ -1,4 +1,4 @@
-var weekAData = localStorage["weekAData"];
+var weekAData = localStorage.getItem("weekAData");
 var debug = false;
 if(weekAData == undefined){
     if(debug){
