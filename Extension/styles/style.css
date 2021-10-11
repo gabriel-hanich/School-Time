@@ -1,7 +1,7 @@
 
 body{
     margin:0px !important;
-    background: #6f727c;
+    background: #1b1c22;
 }
 
 .extensionContainer{
@@ -17,6 +17,7 @@ body{
 
 *{
     font-family: oxygen-regular;
+    color: white;
 }
 
 .hidden{
@@ -36,3 +37,53 @@ body{
 .headingContainer h2{
     font-size: 1rem;
 }
+
+.menuBar{
+    width: 100%;
+    background: #0f0f10;
+    height: 45px;
+    display: flex;
+    flex-direction: row;
+}
+
+
+.menuLinkContainer{
+    flex: 0.10;
+    background: #3E4C95;
+    padding: 0px 25px;
+    display: block;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.menuImg{
+    height: 30px;
+    width: 30px;
+    transition: all 0.25s ease;
+    margin: auto;
+    margin: 5px 10px;
+}
+
+
+#settingsIcon:hover{
+    cursor: pointer;
+    transform: rotate(45deg);
+}
+
+#homeIcon:hover{
+    cursor: pointer;
+    transform: scale(1.15);
+}
+
+
+.highlight{
+    border-bottom: #743ad5 8px solid;
+    border-radius: 4px;
+}
+
+.quickDisplay{
+    flex: 1;
+    text-align: center;
+}
+

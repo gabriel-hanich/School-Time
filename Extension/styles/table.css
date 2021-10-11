@@ -1,5 +1,4 @@
 .periodBox{
-    border: 2px white solid;
     border-radius: 2px;
     text-align: center;
     font-size: 0.5rem;
@@ -7,26 +6,33 @@
     margin: 0px;
     display: flex;
     flex-direction: row;
-    height: auto;
     height: 65px;
+    background: #25262c;
+    padding: 0px;
 }
 
 .periodBox h2{
-    padding: 0px 2px;
+    color: white;
 }
 
 .dayHeading{
-    background: #999dab;
+    background: #3E4C95;
     display: block;
     height: 40px;
 }
 
+.dayHeading h2{
+    padding-top: 9px;
+}
+
 .numberBox{
-    border: 2px white solid;
+    border: #25262c 2px solid;
     border-radius: 2px;
-    background: #999dab;
+    background: #25262c;
     text-align: center;
     height: 65px;
+    padding: 0px;
+    margin: 0px;
 }
 
 .numberBox h2{
