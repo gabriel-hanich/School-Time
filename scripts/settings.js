@@ -19,12 +19,9 @@ function getConfirmation()
 
 function wipeData(){
     if(getConfirmation()){
-        localStorage.removeItem("possibleAData");
-        localStorage.removeItem("weekAData");
-        localStorage.removeItem("weekBData");
-        localStorage.removeItem("possibleBData");
-        localStorage.removeItem("lastWeekADate");
-        window.location.href = "../pages/uploadFile.html"
+        // Wipe all stored data
+        localStorage.clear();
+        window.location.href = "../pages/welcome.html"
     }
 }
 

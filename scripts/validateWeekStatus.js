@@ -1,3 +1,4 @@
+// Aligns weeks in Time Table to actual A or B values
 var weekAData = JSON.parse(localStorage.getItem("possibleAData"));
 var weekBData = JSON.parse(localStorage.getItem("possibleBData"));
 
@@ -32,7 +33,7 @@ for(var i=0; i<weekBData.length; i++){
 }
 
 var table = document.getElementById("mondayTable")
-
+// Display Mondays Data 
 for(var i=0; i<weekA.length; i++){
     if(weekA[i].datePair[0].getDay() == 1){
         var newRow = table.insertRow(-1);
@@ -66,6 +67,8 @@ weekBBtn.addEventListener("click", weekBtnPress);
 console.log(weekA)  
 function weekBtnPress(event){
     console.log(event.path[0].id);
+    localStorage.removeItem("possibleAData")
+    localStorage.removeItem("possibleBData")
     if(event.path[0].id == "weekABtn"){
         localStorage.setItem("weekAData", JSON.stringify(weekA));
         localStorage.setItem("weekBData", JSON.stringify(weekB));

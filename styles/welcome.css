@@ -1,0 +1,30 @@
+.imgContainer{
+    width: 128px;
+    margin: auto;
+    align-items: center;
+    margin-top: 35px;
+}
+
+.btnContainer{
+    width: 65%;
+    margin: auto;
+    margin-top: 25px;
+    display: flex;
+    flex-direction: row;
+}
+
+.welcomeBtn{
+    height: 55px;
+    width: 120px;
+    background: #4568DC;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #B06AB3, #4568DC);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #B06AB3, #4568DC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    border: none;
+    border-radius: 5px;
+    margin: 0px 45px;
+    transition: all 0.5s ease;
+}
+.welcomeBtn:hover{
+    cursor: pointer;
+    transform: scale(1.15);
+}

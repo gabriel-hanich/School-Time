@@ -1,0 +1,69 @@
+.setupBtn{
+    background: #2c3e50;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #3498db, #2c3e50);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #3498db, #2c3e50); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    border: none;
+    width: 80px;
+    height: 35px;
+    border-radius: 5px;
+    transition: all 0.5s ease;
+}
+.setupBtn:hover{
+    cursor: pointer;
+    background: #4db068;
+}
+
+
+.stepsContainer{
+    margin: 15px;
+    width: 65%;
+}
+
+.stepInnerContainer{
+    height: 0px;
+    overflow: hidden;
+    transition: 0.5s ease;
+    background: #25262c;
+}
+
+.stepInnerContainer *{
+    margin-left: 10px;
+    padding-bottom: 5px;
+}
+
+.stepsContainer:hover{
+    cursor: pointer;
+}
+
+#s1Outer:hover #s1Inner{
+    height: 150px;
+    overflow: hidden;
+}
+
+#s2Outer:hover #s2Inner{
+    height: 150px;
+    overflow: hidden;
+}
+
+#s3Outer:hover #s3Inner{
+    height: 150px;
+    overflow: hidden;
+}
+
+#downloadImg{
+    width: 375px;
+    height: auto;
+}
+
+.btnContainer{
+    width: 55%;
+    margin: auto;
+}
+
+.continueBtn{
+    margin: 0px;
+    position: absolute;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}

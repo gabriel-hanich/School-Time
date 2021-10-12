@@ -4,14 +4,14 @@ var body = document.body;
 
 var reader = new FileReader();;
 reader.addEventListener('load', function(event){
-    body.style = `
-    background: url(` + reader.result + `) no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    `
-    localStorage.setItem("imgUrl", JSON.stringify(reader.result));
+    localStorage.removeItem("imgUrl")
+    try {
+        localStorage.setItem("imgUrl", reader.result);
+    }
+    catch (e) {
+        alert("Welp, That Image is too big, Try using a smaller one")
+    }
+    localStorage.setItem("imgUrl", JSON.stringify(reader.result)); // Save image URL in localStorage
     window.location.href = "../pages/display.html";
 });
 

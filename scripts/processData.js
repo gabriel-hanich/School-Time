@@ -12,17 +12,22 @@ class periodClass{
 
     }
 }
-
+// When a file is uploaded
 fileUploader.addEventListener("change", function(){
     var rawFile = fileUploader.files[0];
+    console.log(rawFile.name.split(".").pop())
+    if(rawFile.name.split(".").pop() != "ics"){
+        errorBox.classList.remove("hidden");
+    }else{
+        var fr= new FileReader();
+        fr.onload = function(){
+            var periodsList = processData(fr.result);
+            var weeks = sortWeeks(periodsList);
+        };
+        
+        var fileData = fr.readAsText(rawFile);
+    }
 
-    var fr= new FileReader();
-    fr.onload = function(){
-        var periodsList = processData(fr.result);
-        var weeks = sortWeeks(periodsList);
-    };
-    
-    var fileData = fr.readAsText(rawFile);
 });
 
 
@@ -59,7 +64,7 @@ function processData(data){
             var location = dataList[i + 7].substring(9);
             var teacher = desc.substring(9, desc.indexOf("\\n"));
             var period = parseInt(desc.substring(desc.indexOf("\\n") + 10));
-            if(Number.isNaN(period)){
+            if(Number.isNaN(period)){ // Fix bug where 2 would be decoded as NaN object
                 period = 2;
             }
 
@@ -110,7 +115,7 @@ function sortWeeks(periodsList){
 
     var weekAData = periodsList.slice(aStartIndex, bStartIndex - 1);
     var weekBData = periodsList.slice(bStartIndex, bEndIndex);
-
+    // Store data
     localStorage.setItem("possibleAData", JSON.stringify(weekAData));
     localStorage.setItem("possibleBData", JSON.stringify(weekBData));
     

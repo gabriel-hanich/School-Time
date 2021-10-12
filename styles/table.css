@@ -41,13 +41,30 @@
     height: 100%;
 }
 
+
+
+.highlightClass{
+    background: #4db068 ;
+}
+
+
+.highlightGlassClass{
+    border: white 0px;
+    border-radius: 5px;
+    color: black;
+    -webkit-backdrop-filter: blur(16px); 
+    backdrop-filter: blur(8px);
+    background-color: rgb(77 176 104 / 65%);
+}
+
+
 .glass{
     border: white 0px;
     border-radius: 5px;
     color: black;
     -webkit-backdrop-filter: blur(16px); 
     backdrop-filter: blur(8px);
-    background-color: rgb(228 228 228 / 25%); 
+    background-color: rgb(255 255 255 / 25%);
 }
 
 .glass h2{

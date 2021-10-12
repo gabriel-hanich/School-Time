@@ -29,7 +29,7 @@ for(var i=0; i<datesBetween.length; i++){
 
     }
 }
-
+// If it has been an even number of weeks since the last weekA it must be week A
 if(weeksCount == 0){
     isWeekA = true;
 } else if(weeksCount % 2 == 0){
@@ -55,8 +55,7 @@ class periodClass{
 var weekADataRaw = JSON.parse(localStorage.getItem("weekAData"));
 var weekBDataRaw = JSON.parse(localStorage.getItem("weekBData"));
 
-
-
+// Process the strings from the stored data into Date() objects
 var weekAData = []
 for(var i=0; i<weekADataRaw.length; i++){
     thisClass = weekADataRaw[i];
@@ -82,6 +81,7 @@ var heading = document.getElementById("displayHeading");
 
 var dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
 
+// Find if the user has a custom background image (if so applies frosted glass background to boxes)
 var doGlass = false;
 var bgImgUrl = localStorage.getItem("imgUrl");
 var statusText = document.getElementById("statusText");
@@ -89,8 +89,7 @@ if(bgImgUrl != undefined){
     doGlass = true;
 }
 
-console.log(doGlass)
-
+// Define which data set it used (week A or week B)
 
 if(isWeekA){
     statusText.innerHTML = `
@@ -98,78 +97,79 @@ if(isWeekA){
         <h2>` + dayNames[today.getDay()] + ` Week A</h2>
     </div>
     `
-    for(var i=0; i<2; i++){
-        for(var k=0; k<weekAData.length; k++){
-            if(weekAData[k].datePair[0].getDay() == today.getDay() + i){
-                var newRow = tables[i].insertRow(-1);
-                var periodCell = newRow.insertCell(0);
-                var dataCell = newRow.insertCell(1);
-                
-                var className = weekAData[k].className.substring(weekAData[k].className.indexOf(":") + 1)
-                
-                
-                periodCell.innerHTML = `
-                <tr>
-                <div class="numberBox">
-                    <h2>` + weekAData[k].period + `</h2>
-                </div>
-                </tr>`
-                
-                dataCell.innerHTML = `
-                <tr>
-                <div class="periodBox">
-                    <h2 class="className classData">` + className +  `</h2>
-                    <h2 class="location classData">` + weekAData[k].location + `</h2>
-                    <h2 class="teacher classData">` + weekAData[k].teacher + `</h2>
-                </div>
-                </tr>`
-            }
-        }
-    }
-    
-    
+    var displayWeekData = weekAData;
 }
+
 else if(!isWeekA){
     statusText.innerHTML = `
     <div class="quickDisplay" id="statusText">
         <h2>` + dayNames[today.getDay()] + ` Week B</h2>
     </div>
     `
-    for(var i=0; i<2; i++){
-        for(var k=0; k<weekBData.length; k++){
-            if(weekBData[k].datePair[0].getDay() == today.getDay() + i){
-                var newRow = tables[i].insertRow(-1);
-                var periodCell = newRow.insertCell(0);
-                var dataCell = newRow.insertCell(1);
+    var displayWeekData = weekBData;
+}
+// Display the data
+for(var i=0; i<2; i++){
+    for(var k=0; k<displayWeekData.length; k++){
+        if(displayWeekData[k].datePair[0].getDay() == today.getDay() + i){
+            var newRow = tables[i].insertRow(-1);
+            var periodCell = newRow.insertCell(0);
+            var dataCell = newRow.insertCell(1);
+            
+            var className = displayWeekData[k].className.substring(displayWeekData[k].className.indexOf(":") + 1)
+            
+            var dataCellClassList = "periodBox tableBox"
+            if(i == 0){ // Only calculate what class it is at the time for todays table
+                var startDate = displayWeekData[k].datePair[0];
+                var startTime = new Date(today.getTime());
+                startTime.setHours(startDate.getHours());
+                startTime.setMinutes(startDate.getMinutes())
+    
+                var endDate = displayWeekData[k].datePair[1];
+                var endTime = new Date(today.getTime());
+                endTime.setHours(endDate.getHours());
+                endTime.setMinutes(endDate.getMinutes());
                 
-                var className = weekBData[k].className.substring(weekAData[k].className.indexOf(":") + 1)
-                var className = weekBData[k].className
-                
-                periodCell.innerHTML = `
-                <tr>
-                    <div class="numberBox tableBox">
-                        <h2>` + weekBData[k].period + `</h2>
-                    </div>
-                </tr>`
-
-                dataCell.innerHTML = `
-                <tr>
-                    <div class="periodBox tableBox">
-                        <h2 class="className classData">` + className +  `</h2>
-                        <h2 class="location classData">` + weekBData[k].location + `</h2>
-                        <h2 class="teacher classData">` + weekBData[k].teacher + `</h2>
-                    </div>
-                </tr>`
+                var periodBoxClasses = "periodBox";
+    
+                if(startTime < today && endTime > today){
+                    console.log(displayWeekData[k].className)
+                    dataCellClassList += " highlightClass"
+                }
             }
+            
+            periodCell.innerHTML = `
+            <tr>
+            <div class="numberBox tableBox">
+                <h2>` + displayWeekData[k].period + `</h2>
+            </div>
+            </tr>`
+            
+            dataCell.innerHTML = `
+            <tr>
+            <div class="` + dataCellClassList + `">
+                <h2 class="className classData">` + className +  `</h2>
+                <h2 class="location classData">` + displayWeekData[k].location + `</h2>
+                <h2 class="teacher classData">` + displayWeekData[k].teacher + `</h2>
+            </div>
+            </tr>`
         }
     }
+  
+    
 }
-
+// Apply frosted glass texture
 if(doGlass){
     var toGlass = document.getElementsByClassName("tableBox");
     var body = document.body;
     for(var i=0; i<toGlass.length; i++){
-        toGlass[i].classList.add("glass")
+        if(toGlass[i].classList.contains("highlightClass")){ // If the box is highlighted a colored frosted glass is used
+            console.log("FOUND")
+            toGlass[i].classList.remove("highlightClass");
+            toGlass[i].classList.add("highlightGlassClass");
+        }else{
+            toGlass[i].classList.add("glass")
+        }
     }
     body.style = `
     background: url(` + bgImgUrl + `) no-repeat center center fixed; 
