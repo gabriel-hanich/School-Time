@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload your custom background image here</title>
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/upload.css">
+</head>
+<body>
+    <div class="extensionContainer">
+        <div class="menuBar">
+            <div class="menuLinkContainer" id="homeContainer">
+                <a href="../pages/display.html">
+                    <img src="../resources/icons/home.svg" alt="Home" id="homeIcon" class="menuImg">
+                </a>
+            </div>
+
+            <div class="quickDisplay">
+                <h2>Hello World</h2>
+            </div>
+
+            <div class="menuLinkContainer highlight" id ="settingsContainer">
+                <a href="../pages/settings.html">
+                    <img src="../resources/icons/cog.svg" alt="Settings" id="settingsIcon" class="menuImg">
+                </a>
+            </div>
+        </div>
+
+
+        <div class="headingContainer">
+            <h1>Upload your own custom image to use as a background</h1>
+        </div>
+
+        <div class="formContainer">
+            <form action="" class="uploadForm">
+                <input type="file" id="fileUpload">
+            </form>
+        </div>
+        
+        <div class="eraseContainer">
+            <h2>Erase your image and use the default theme</h2>
+            <button id="eraseBtn" class="eraseBtn">Erase</button>
+        </div>
+    </div>
+
+    <script src="../scripts/uploadBackground.js"></script>
+</body>
+</html>

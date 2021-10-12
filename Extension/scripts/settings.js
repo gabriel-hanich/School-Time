@@ -1,5 +1,7 @@
 var wipeBtn = document.getElementById("wipeBtn");
 var weekBtn = document.getElementById("weekBtn")
+var bgBtn = document.getElementById("bgBtn");
+
 
 function getConfirmation()
     {
@@ -29,7 +31,13 @@ function wipeData(){
 wipeBtn.addEventListener("click", wipeData);
 
 function resetWeek(){
-    window.location.href = "../pages/validateCurrentWeek.html"
+    window.location.href = "../pages/validateCurrentWeek.html";
 }
 
-weekBtn.addEventListener("click", resetWeek)
+weekBtn.addEventListener("click", resetWeek);
+
+function uploadImg(event){
+    window.location.href = "../pages/uploadBackground.html";
+}
+
+bgBtn.addEventListener("click", uploadImg);

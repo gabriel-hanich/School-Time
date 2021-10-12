@@ -85,5 +85,14 @@ body{
 .quickDisplay{
     flex: 1;
     text-align: center;
+    margin-bottom: 15px;
 }
+
+.quickDisplay{
+    flex: 1;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+
 

@@ -33,3 +33,11 @@
 .resetWeekContainer{
     margin-left: 10px;
 }
+
+.customBackgroundContainer{
+    margin-left: 15px;
+}
+
+#bgBtn{
+    margin-bottom: 10px;
+}
