@@ -13,6 +13,8 @@
 
 .periodBox h2{
     color: white;
+    padding-right: 5px;
+    width: 33%;
 }
 
 .dayHeading{
