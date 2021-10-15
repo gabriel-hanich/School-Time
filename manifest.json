@@ -1,15 +1,12 @@
 {
     "manifest_version": 2,
-    "name": "School Time",
-    "description": "Easily keep track of your school timetable directly from the browser. School Time easily integrates with Sentral and features automatic timetable generation.",
     "version": "0.5",
+    "name": "School Time",
+    "description": "Easily keep track of your school timetable directly from the browser",
     "browser_action": {
       "default_icon": "resources/icons/icon.png",
       "default_popup": "index.html",
-      "default_title": "REEEE"
+      "default_title": "School Time"
     },
-    "permissions": [
-      "storage"
-  ],
   "icons": { "128": "resources/icons/icon.png" }
 }

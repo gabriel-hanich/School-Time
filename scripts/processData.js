@@ -113,8 +113,8 @@ function sortWeeks(periodsList){
         }
     }
 
-    var weekAData = periodsList.slice(aStartIndex, bStartIndex - 1);
-    var weekBData = periodsList.slice(bStartIndex, bEndIndex);
+    var weekAData = periodsList.slice(aStartIndex, bStartIndex);
+    var weekBData = periodsList.slice(bStartIndex, bEndIndex + 1);
     // Store data
     localStorage.setItem("possibleAData", JSON.stringify(weekAData));
     localStorage.setItem("possibleBData", JSON.stringify(weekBData));

@@ -120,6 +120,7 @@ for(var i=0; i<2; i++){
             
             var dataCellClassList = "periodBox tableBox"
             if(i == 0){ // Only calculate what class it is at the time for todays table
+                console.log(className);
                 var startDate = displayWeekData[k].datePair[0];
                 var startTime = new Date(today.getTime());
                 startTime.setHours(startDate.getHours());
@@ -133,7 +134,6 @@ for(var i=0; i<2; i++){
                 var periodBoxClasses = "periodBox";
     
                 if(startTime < today && endTime > today){
-                    console.log(displayWeekData[k].className)
                     dataCellClassList += " highlightClass"
                 }
             }
@@ -144,7 +144,6 @@ for(var i=0; i<2; i++){
                 <h2>` + displayWeekData[k].period + `</h2>
             </div>
             </tr>`
-            
             dataCell.innerHTML = `
             <tr>
             <div class="` + dataCellClassList + `">
@@ -164,7 +163,6 @@ if(doGlass){
     var body = document.body;
     for(var i=0; i<toGlass.length; i++){
         if(toGlass[i].classList.contains("highlightClass")){ // If the box is highlighted a colored frosted glass is used
-            console.log("FOUND")
             toGlass[i].classList.remove("highlightClass");
             toGlass[i].classList.add("highlightGlassClass");
         }else{
