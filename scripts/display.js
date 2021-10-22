@@ -2,6 +2,7 @@
 
 var lastWeekA = new Date(localStorage.getItem("lastWeekADate")); // Gather the last date when it was Week A
 var today = new Date();
+today.setHours(12)
 
 // Function that gets the date a specified numeber of days after a given day
 Date.prototype.addDays = function(days) { 
@@ -129,7 +130,12 @@ for(var i=0; i<2; i++){
     
                 if(startTime < today && endTime > today){
                     dataCellClassList += " highlightClass"
-                    statusTextString += ", P" + displayWeekData[k].period.toString();
+                    var periodBubble = document.getElementById("periodBubble");
+                    periodBubble.innerHTML = `
+                    <div class="dataBubble" id="periodBubble">
+                        <h3 class="bubbleText">P` + displayWeekData[k].period + `</h3>
+                    </div>
+                    `
                 }
             }
             var dateStringPair = [];
@@ -202,6 +208,29 @@ statusText.innerHTML = `
         <h2>` + statusTextString +  `</h2> 
     </div>
     `
+// Show week number in week bubble
+var weekNumber = localStorage.getItem("weekNumber");
+var lastRecordedWeekNumber = weekNumber.substring(0, 1);
+var recordedWeekDate = new Date(weekNumber.substring(2));
+
+var datesBetween =  getDatesBetween(recordedWeekDate, today);
+weeksCount = 0;
+for(var i=0; i<datesBetween.length; i++){
+    if(datesBetween[i].getDay() == 0){
+        weeksCount = weeksCount + 1;
+
+    }
+}
+
+var thisweekNumber = parseInt(weeksCount) + parseInt(lastRecordedWeekNumber);
+console.log(thisweekNumber);
+
+var weekBubble = document.getElementById("weekBubble");
+weekBubble.innerHTML = `
+<div class="dataBubble" id="weekBubble">
+    <h3>Week ` + thisweekNumber + `</h3>
+</div>
+`
 
 // Apply frosted glass texture
 if(doGlass){

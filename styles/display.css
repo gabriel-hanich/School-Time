@@ -41,3 +41,30 @@
     0%   {transform: rotate3d(1, 0, 0, 90deg)}
     100% {transform: rotate3d(1, 0, 0, 0deg)}
 }
+
+
+.dataBubble{
+    background-color: #3E4C95;
+    width: 55px;
+    height: 55px;
+    border-radius: 27.5px;
+    z-index: 2;
+    text-align: center;
+}
+
+#weekBubble{
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+}
+
+#periodBubble{
+    position: absolute;
+    bottom: 5px;
+    left: 5px;
+}
+
+.bubbleText{
+    padding-top: 0px;
+    font-size: 0.9rem;
+}
