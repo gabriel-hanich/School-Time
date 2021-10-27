@@ -3,7 +3,7 @@ var weekAData = localStorage.getItem("weekAData");
 var debug = false;
 
 if(debug){
-    window.location.href = "../pages/uploadFile.html"
+    window.location.href = "../pages/getWeekNumber.html"
 }
 else{
     if(weekAData == undefined){
