@@ -2,7 +2,6 @@
 
 var lastWeekA = new Date(localStorage.getItem("lastWeekADate")); // Gather the last date when it was Week A
 var today = new Date();
-today.setHours(12)
 
 // Function that gets the date a specified numeber of days after a given day
 Date.prototype.addDays = function(days) { 
@@ -165,10 +164,14 @@ for(var i=0; i<2; i++){
             </tr>`
 
             if(dataCellClassList.includes("highlight")){
-                var times = displayWeekData[k].datePair[1].getTime() - today.getTime();
-                console.log(times)
-                var minutesOfClassLeft = parseInt((times / 1000) / 60);
-                console.log(minutesOfClassLeft)
+                var endTime = displayWeekData[k].datePair[1];
+                endTime.setFullYear(today.getFullYear());
+                endTime.setMonth(today.getMonth());
+                endTime.setDate(today.getDate());
+                
+                var minutesOfClassLeft =  endTime.getTime() - today.getTime()
+                minutesOfClassLeft = parseInt(minutesOfClassLeft / (1000 * 60))
+
                 dataCell.innerHTML = `
                 <tr>
                 <div class="` + dataCellClassList + `">
