@@ -63,10 +63,8 @@ function processData(data){
             var className = dataList[i + 6].substring(8);
             var location = dataList[i + 7].substring(9);
             var teacher = desc.substring(9, desc.indexOf("\\n"));
-            var period = parseInt(desc.substring(desc.indexOf("\\n") + 10));
-            if(Number.isNaN(period)){ // Fix bug where 2 would be decoded as NaN object
-                period = 2;
-            }
+            var period = desc.substring(desc.indexOf("\\n") + 10);
+            
 
             if(dataList[i+ 8] == "END:VEVENT"){ // Double checks file strucrture before appending list
                 periodsList.push(new periodClass(datePair, teacher, period, className, location));
