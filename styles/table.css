@@ -1,22 +1,21 @@
 .periodBox{
-    border-radius: 2px;
-    text-align: center;
-    font-size: 0.5rem;
-    padding: 0px;
-    margin: 0px;
     display: flex;
     flex-direction: row;
+    gap: 0.5px;
+
+    text-align: center;
+    font-size: 0.5rem;
+    
     background: #25262c;
+    border-radius: 2px;
+
     height: 65px;
     padding: 0px;
     width: 200px;
+
+    overflow-y: hidden;
 }
 
-.periodBox h2{
-    color: white;
-    padding-right: 5px;
-    width: 33%;
-}
 
 .timeBox h2{
     width: 50%;
@@ -25,6 +24,14 @@
 .highlightTime{
     width: 33%;
 }
+
+.periodInfo{
+    width: 33%;
+    text-align: center;
+    padding: 0px;
+    margin: 0px;
+}
+
 
 .dayHeading{
     background: #3E4C95;

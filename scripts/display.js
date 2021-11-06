@@ -2,6 +2,7 @@
 
 var lastWeekA = new Date(localStorage.getItem("lastWeekADate")); // Gather the last date when it was Week A
 var today = new Date();
+today.setDate(8)
 
 // Function that gets the date a specified numeber of days after a given day
 Date.prototype.addDays = function(days) { 
@@ -111,6 +112,9 @@ for(var i=0; i<2; i++){
             var dataCell = newRow.insertCell(1);
             
             var className = displayWeekData[k].className.substring(displayWeekData[k].className.indexOf(":") + 1)
+            if(className.indexOf("Yr") !== -1){
+                className = className.substring(0, className.indexOf("Yr"))
+            }
             
 
             var dataCellClassList = "periodBox tableBox dataBox"
@@ -189,9 +193,11 @@ for(var i=0; i<2; i++){
                 dataCell.innerHTML = `
                 <tr>
                 <div class="` + dataCellClassList + `">
-                    <h2 class="className classData">` + className +  `</h2>
-                    <h2 class="location classData">` + displayWeekData[k].location + `</h2>
-                    <h2 class="teacher classData">` + displayWeekData[k].teacher + `</h2>
+                    <div class="periodInfo"><h2 class="className classData">` + className +  `</h2></div>
+                    <div class="periodInfo"><h2 class="location classData">` + displayWeekData[k].location + `</h2>
+                        <h2>Hello World</h2>
+                    </div>
+                    <div class="periodInfo"><h2 class="teacher classData">` + displayWeekData[k].teacher + `</h2></div>
                 </div>
                 <div class="timeBox ` + dataCellClassList + ` hidden">
                     <h2 class="startTime classData timeData">Start: ` + dateStringPair[0] +  `</h2>
