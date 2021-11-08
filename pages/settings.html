@@ -20,7 +20,7 @@
 
             <div class="quickDisplay">
                 <a href="https://github.com/gabriel-hanich/School-Timetable" target="_blank">
-                    <button class="sourceBtn settingsBtn">Source Code</button>
+                    <button class="sourceBtn">Source Code</button>
                 </a>
             </div>
 
@@ -35,25 +35,31 @@
             <h1>Settings</h1>
         </div>
 
-        <div class="settingsOptionContainer">
-            <h2 class="settingsHeading">Wipe your Data</h2>
-            <div class="wipeDataContainer">
-                <h3 class="settingsSubHeading">Wipe Your Data and re-upload it</h3>
-                <button id="wipeBtn" class="settingsBtn">Wipe</button>
+        <div class="settingsCardContainer">
+            <div class="settingsCard" id="wipeCard">
+                <h2 class="settingsHeading">Wipe Your Data</h2>
+                <h3 class="settingsExplainer">Completely erase your data from the extension</h3>
+                <button class="settingsButton" id="wipeBtn">Erase Data</button>
             </div>
-            <h2 class="settingsHeading">Reset current week</h2>
-            <div class="resetWeekContainer">
-                <h3 class="settingsSubHeading">Reset what week (A or B) it is this week AND what week number it is</h3>
-                <button id="weekBtn" class="settingsBtn">Reset</button>
+            <div class="settingsCard hidden" id="resetWeekCard">
+                <h2 class="settingsHeading">Reset what week it is</h2>
+                <h3 class="settingsExplainer">Resets both what week it is (A and B) and what week number it is</h3>
+                <button class="settingsButton" id="wipeBtn">Reset</button>
             </div>
-            <h2 class="settingsHeading">Custom Background Image</h2>
-            <div class="customBackgroundContainer">
-                <h3 class="settingsSubHeading">Upload a custom image to use as a background</h3>
-                <button id="bgBtn" class="settingsBtn">Background</button>
-            </div>
-
         </div>
+
+
+
+        <div class="arrowContainer" id="leftArrowContainer">
+            <img id="leftArrow" src="../resources/icons/leftArrrow.svg" alt="Left Arrow" class="arrow">
+        </div>
+
+        <div class="arrowContainer" id="rightArrowContainer">
+            <img id="rightArrow" src="../resources/icons/rightArrow.svg" alt="rightArrow" class="arrow">
+        </div>
+
     </div>
+
 
     <script src="../scripts/settings.js"></script>
 </body>

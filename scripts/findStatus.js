@@ -1,9 +1,9 @@
 // If the data for week A cannot be found redirect the user to the setup pages
 var weekAData = localStorage.getItem("weekAData");
-var debug = false;
+var debug = true;
 
 if(debug){
-    window.location.href = "../pages/getWeekNumber.html"
+    window.location.href = "../pages/settings.html"
 }
 else{
     if(weekAData == undefined){

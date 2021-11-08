@@ -2,8 +2,7 @@
 
 var lastWeekA = new Date(localStorage.getItem("lastWeekADate")); // Gather the last date when it was Week A
 var today = new Date();
-today.setDate(8)
-
+    
 // Function that gets the date a specified numeber of days after a given day
 Date.prototype.addDays = function(days) { 
     var date = new Date(this.valueOf());
@@ -136,7 +135,7 @@ for(var i=0; i<2; i++){
                     var periodBubble = document.getElementById("periodBubble");
                     periodBubble.innerHTML = `
                     <div class="dataBubble" id="periodBubble">
-                        <h3 class="bubbleText">P` + displayWeekData[k].period + `</h3>
+                        <h3 class="bubbleText">P:` + displayWeekData[k].period + `</h3>
                     </div>
                     `
                 }
@@ -194,8 +193,9 @@ for(var i=0; i<2; i++){
                 <tr>
                 <div class="` + dataCellClassList + `">
                     <div class="periodInfo"><h2 class="className classData">` + className +  `</h2></div>
-                    <div class="periodInfo"><h2 class="location classData">` + displayWeekData[k].location + `</h2>
-                        <h2>Hello World</h2>
+                    <div class="periodInfo">
+                        <h2 class="location classData">` + displayWeekData[k].location + `</h2>
+                        <img src="../resources/icons/notesIco.svg" alt="notification" class="notifIco">
                     </div>
                     <div class="periodInfo"><h2 class="teacher classData">` + displayWeekData[k].teacher + `</h2></div>
                 </div>

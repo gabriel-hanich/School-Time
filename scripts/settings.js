@@ -1,40 +1,51 @@
-var wipeBtn = document.getElementById("wipeBtn");
-var weekBtn = document.getElementById("weekBtn")
-var bgBtn = document.getElementById("bgBtn");
+var settingsCards = document.getElementsByClassName("settingsCard");
+var currentCard = 0;
+var lastCard = 1
+var leftArrow = document.getElementById("leftArrow");
+var rightArrow = document.getElementById("rightArrow");
+
+leftArrow.classList.add("greyed")
+
+function updateCards(){
+    if(currentCard - lastCard == 1){
+        settingsCards[currentCard - 1].style = `
+            animation-name: move;
+            animation-duration: 250ms;
+            animation-timing-function: linear;
+        `
+    }
 
 
-function getConfirmation()
-    {
-        var retVal = confirm("Are you sure you want to erase your timetable data?");
-        if (retVal == true)
-        {
-            return true;
-        } 
-        else
-        {
-            return false;
+    setTimeout(() => {
+        for(var i=0; i<settingsCards.length; i++){
+            settingsCards[i].classList.add("hidden")
         }
+        settingsCards[currentCard].classList.remove("hidden")
+    }, 250);
+
+    leftArrow.classList.remove("greyed")
+    rightArrow.classList.remove("greyed")
+
+    if(currentCard == 0){
+        leftArrow.classList.add("greyed")
+    }else if(currentCard == settingsCards.length - 1){
+        rightArrow.classList.add("greyed")
     }
+}
 
 
-function wipeData(){
-    if(getConfirmation()){
-        // Wipe all stored data
-        localStorage.clear();
-        window.location.href = "../pages/welcome.html"
+leftArrow.addEventListener("click", function(event){
+    if(!event.target.classList.contains("greyed")){
+        currentCard -= 1
+        updateCards();
     }
-}
+});
 
-wipeBtn.addEventListener("click", wipeData);
 
-function resetWeek(){
-    window.location.href = "../pages/validateCurrentWeek.html";
-}
+rightArrow.addEventListener("click", function(event){
+    if(!event.target.classList.contains("greyed")){
+        currentCard += 1
+        updateCards();
+    }
+});
 
-weekBtn.addEventListener("click", resetWeek);
-
-function uploadImg(event){
-    window.location.href = "../pages/uploadBackground.html";
-}
-
-bgBtn.addEventListener("click", uploadImg);
