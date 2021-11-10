@@ -30,25 +30,31 @@
 .settingsCardContainer{
     width: 75%;
     height: 275px;
+    position: relative;
     margin: auto;
     margin-top: 10px;
-    overflow: hidden;
 }
 
 .settingsCard{
+    position: absolute;
+    left: 50%;
+    
+    z-index: 1;
+
     height: 85%;
     width: 50%;
-    margin: auto;
 
-
-    background: #FC466B;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to left, #3F5EFB, #FC466B);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to left, #3F5EFB, #FC466B); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-    border-radius: 5px;
+    margin-left: -25%;
+    border-radius: 15px;
 
     text-align: center;
+    background: #009FFF;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #ec2F4B, #009FFF);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #ec2F4B, #009FFF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 }
+
+
 
 .settingsButton{
     flex: 1;
@@ -78,51 +84,21 @@
     margin-top: 5px;
 }
 
-.greyed{
-    opacity: 25%;
+.hide{
+    display: none;
 }
 
-
-
-@keyframes moveLeftOut {
+@keyframes moveLeftOff {
     0%{
+        transform: translate(0px, 0px) rotate(0deg);
+        transform-origin: top right;
         opacity: 100%;
-        transform: translate(0px, 0px);
     }
     100%{
-        opacity: 25%;
-        transform: translate(-100px, 0px);
-    }
-}
-@keyframes moveLeftIn {
-    0%{
+        transform: translate(-200px, 0px) rotate(15deg);
+        transform-origin: top right;
         opacity: 0%;
-        transform: translate(0px, 0px);
-    }
-    100%{
-        opacity: 100%;
-        transform: translate(-100px, 0px);
     }
 }
 
-@keyframes moveRightIn{
-    0%{
-        opacity: 0%;
-        transform: translate(100px, 0px);
-    }
-    100%{
-        opacity: 100%;
-        transform: translate(0px, 0px);
-    }
-}
 
-@keyframes moveRightOut{
-    0%{
-        opacity: 100%;
-        transform: translate(100px, 0px);
-    }
-    100%{
-        opacity: 25%;
-        transform: translate(0px, 0px);
-    }
-}
