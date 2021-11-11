@@ -176,18 +176,24 @@ for(var i=0; i<2; i++){
                 minutesOfClassLeft = parseInt(minutesOfClassLeft / (1000 * 60))
 
                 dataCell.innerHTML = `
+
                 <tr>
                 <div class="` + dataCellClassList + `">
-                    <h2 class="className classData">` + className +  `</h2>
-                    <h2 class="location classData">` + displayWeekData[k].location + `</h2>
-                    <h2 class="teacher classData">` + displayWeekData[k].teacher + `</h2>
+                    <div class="periodInfo"><h2 class="className classData">` + className +  `</h2></div>
+                    <div class="periodInfo">
+                        <h2 class="location classData">` + displayWeekData[k].location + `</h2>
+                        <img src="../resources/icons/notesIco.svg" alt="notification" class="notifIco">
+                    </div>
+                    <div class="periodInfo"><h2 class="teacher classData">` + displayWeekData[k].teacher + `</h2></div>
                 </div>
                 <div class="timeBox ` + dataCellClassList + ` hidden">
-                    <h2 class="classData timeData highlightTime">Start: ` + dateStringPair[0] +  `</h2>
-                    <h2 class="classData timeData highlightTime">End: ` + dateStringPair[1] + `</h2>
+                    <h2 class="startTime classData timeData">Start: ` + dateStringPair[0] +  `</h2>
+                    <h2 class="endTime classData timeData">End: ` + dateStringPair[1] + `</h2>
                     <h2 class="classData timeData highlightTime">Time left:` + minutesOfClassLeft + ` min</h2>
                 </div>
-                </tr>`
+                </tr>
+                `
+                
             }else{
                 dataCell.innerHTML = `
                 <tr>
