@@ -158,13 +158,8 @@ for(var i=0; i<2; i++){
             }
              var startTimeString = displayWeekData[k].datePair[0].getHours() + ":" + displayWeekData[k].datePair[0].getMinutes()
              var endTimeString = displayWeekData[k].datePair[1].getHours() + ":" + displayWeekData[k].datePair[1].getMinutes()
-            
-            periodCell.innerHTML = `
-            <tr>
-            <div class="numberBox tableBox ">
-                <h2>` + displayWeekData[k].period + `</h2>
-            </div>
-            </tr>`
+
+
 
             if(dataCellClassList.includes("highlight")){
                 var endTime = displayWeekData[k].datePair[1];
@@ -178,37 +173,47 @@ for(var i=0; i<2; i++){
                 dataCell.innerHTML = `
 
                 <tr>
-                <div class="` + dataCellClassList + `">
-                    <div class="periodInfo"><h2 class="className classData">` + className +  `</h2></div>
-                    <div class="periodInfo">
-                        <h2 class="location classData">` + displayWeekData[k].location + `</h2>
-                        <img src="../resources/icons/notesIco.svg" alt="notification" class="notifIco">
-                    </div>
-                    <div class="periodInfo"><h2 class="teacher classData">` + displayWeekData[k].teacher + `</h2></div>
-                </div>
-                <div class="timeBox ` + dataCellClassList + ` hidden">
-                    <h2 class="startTime classData timeData">Start: ` + dateStringPair[0] +  `</h2>
-                    <h2 class="endTime classData timeData">End: ` + dateStringPair[1] + `</h2>
-                    <h2 class="classData timeData highlightTime">Time left:` + minutesOfClassLeft + ` min</h2>
-                </div>
+                    <div class="dataRow">
+                        <div class="numberBox tableBox ">
+                            <h2>` + displayWeekData[k].period[0] + `</h2>
+                        </div>  
+                        <div class="` + dataCellClassList + `">
+                            <div class="periodInfo"><h2 class="className classData">` + className +  `</h2></div>
+                                <div class="periodInfo">
+                                    <h2 class="location classData">` + displayWeekData[k].location + `</h2>
+                                    <img src="../resources/icons/notesIco.svg" alt="notification" class="notifIco">
+                                </div>
+                            <div class="periodInfo"><h2 class="teacher classData">` + displayWeekData[k].teacher + `</h2></div>
+                        </div>
+                        <div class="timeBox ` + dataCellClassList + ` hidden">
+                            <h2 class="startTime classData timeData">Start: ` + dateStringPair[0] +  `</h2>
+                            <h2 class="endTime classData timeData">End: ` + dateStringPair[1] + `</h2>
+                            <h2 class="classData timeData highlightTime">Time left:` + minutesOfClassLeft + ` min</h2>
+                        </div>  
+                    </div>    
                 </tr>
                 `
                 
             }else{
                 dataCell.innerHTML = `
                 <tr>
-                <div class="` + dataCellClassList + `">
-                    <div class="periodInfo"><h2 class="className classData">` + className +  `</h2></div>
-                    <div class="periodInfo">
-                        <h2 class="location classData">` + displayWeekData[k].location + `</h2>
-                        <img src="../resources/icons/notesIco.svg" alt="notification" class="notifIco">
+                    <div class="dataRow">
+                        <div class="numberBox tableBox ">
+                            <h2>` + displayWeekData[k].period[0] + `</h2>
+                        </div>  
+                        <div class="` + dataCellClassList + `">
+                            <div class="periodInfo"><h2 class="className classData">` + className +  `</h2></div>
+                            <div class="periodInfo">
+                                <h2 class="location classData">` + displayWeekData[k].location + `</h2>
+                                <img src="../resources/icons/notesIco.svg" alt="notification" class="notifIco">
+                            </div>
+                            <div class="periodInfo"><h2 class="teacher classData">` + displayWeekData[k].teacher + `</h2></div>
+                        </div>
+                        <div class="timeBox ` + dataCellClassList + ` hidden">
+                            <h2 class="startTime classData timeData">Start: ` + dateStringPair[0] +  `</h2>
+                            <h2 class="endTime classData timeData">End: ` + dateStringPair[1] + `</h2>
+                        </div>
                     </div>
-                    <div class="periodInfo"><h2 class="teacher classData">` + displayWeekData[k].teacher + `</h2></div>
-                </div>
-                <div class="timeBox ` + dataCellClassList + ` hidden">
-                    <h2 class="startTime classData timeData">Start: ` + dateStringPair[0] +  `</h2>
-                    <h2 class="endTime classData timeData">End: ` + dateStringPair[1] + `</h2>
-                </div>
                 </tr>`
             }
         }

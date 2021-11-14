@@ -106,4 +106,8 @@ backgroundBtn.addEventListener("click", function(event){
     window.location.href = "../pages/uploadBackground.html"
 });
 
+noteBtn.addEventListener("click", function(event){
+    window.location.href = "../pages/notes.html"
+});
+
 
