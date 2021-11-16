@@ -27,7 +27,6 @@ body{
     width: 90%;
     margin: auto;
     text-align: center;
-    
 }
 
 .headingContainer h1{
@@ -84,15 +83,11 @@ body{
 .quickDisplay{
     flex: 1;
     text-align: center;
-    margin-bottom: 15px;
 }
 
-.quickDisplay{
-    flex: 1;
-    text-align: center;
-    margin-bottom: 15px;
+.statusText{
+    margin-top: auto;
 }
-
 
 .sourceBtn{
     text-decoration: underline;

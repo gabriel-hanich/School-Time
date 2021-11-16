@@ -171,7 +171,6 @@ for(var i=0; i<2; i++){
                 minutesOfClassLeft = parseInt(minutesOfClassLeft / (1000 * 60))
 
                 dataCell.innerHTML = `
-
                 <tr>
                     <div class="dataRow">
                         <div class="numberBox tableBox ">
@@ -183,7 +182,7 @@ for(var i=0; i<2; i++){
                                     <h2 class="location classData">` + displayWeekData[k].location + `</h2>
                                     <img src="../resources/icons/notesIco.svg" alt="notification" class="notifIco">
                                 </div>
-                            <div class="periodInfo"><h2 class="teacher classData">` + displayWeekData[k].teacher + `</h2></div>
+                            <div class="periodInfo"><h2 class="teacher classData">` + displayWeekData[k].teacher.toLowerCase() + `</h2></div>
                         </div>
                         <div class="timeBox ` + dataCellClassList + ` hidden">
                             <h2 class="startTime classData timeData">Start: ` + dateStringPair[0] +  `</h2>
@@ -207,7 +206,7 @@ for(var i=0; i<2; i++){
                                 <h2 class="location classData">` + displayWeekData[k].location + `</h2>
                                 <img src="../resources/icons/notesIco.svg" alt="notification" class="notifIco">
                             </div>
-                            <div class="periodInfo"><h2 class="teacher classData">` + displayWeekData[k].teacher + `</h2></div>
+                            <div class="periodInfo"><h2 class="teacher classData">` + displayWeekData[k].teacher.toLowerCase() + `</h2></div>
                         </div>
                         <div class="timeBox ` + dataCellClassList + ` hidden">
                             <h2 class="startTime classData timeData">Start: ` + dateStringPair[0] +  `</h2>

@@ -31,6 +31,10 @@
     background: #4db068;
 }
 
+.classData{
+    text-transform: capitalize;
+}
+
 
 @keyframes startSpin {
     0%   {transform: rotate3d(1, 0, 0, 0deg)}

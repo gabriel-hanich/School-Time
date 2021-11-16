@@ -107,7 +107,7 @@ backgroundBtn.addEventListener("click", function(event){
 });
 
 noteBtn.addEventListener("click", function(event){
-    window.location.href = "../pages/notes.html"
+    window.location.href = "../pages/notesSplit.html"
 });
 
 

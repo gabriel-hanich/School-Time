@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add a note</title>
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/addNote.css">
+</head>
+<body>
+    <div class="extensionContainer">
+        <div class="menuBar">
+            <div class="menuLinkContainer" id="homeContainer">
+                <a href="../pages/display.html">
+                    <img src="../resources/icons/home.svg" alt="Home" id="homeIcon" class="menuImg">
+                </a>
+            </div>
+
+            <div class="quickDisplay">
+                <h2>Add a note</h2>
+            </div>
+
+            <div class="menuLinkContainer highlight" id ="settingsContainer">
+                <a href="../pages/settings.html">
+                    <img src="../resources/icons/cog.svg" alt="Settings" id="settingsIcon" class="menuImg">
+                </a>
+            </div>
+        </div>
+        <div class="addContainer">
+            <div class="addTextContainer">
+                <h2 class="addText">On</h2>
+                <div class="optionContainer">
+                    <ol class="optionList">
+                        <li class="optionItem">
+                            <button class="optionButton" id="anyDayBtn">Any Day</button>
+                        </li>
+                        <li class="optionItem">
+                            <button class="optionButton" id="mondayBtn">Monday</button>
+                        </li>
+                        <li class="optionItem">
+                            <button class="optionButton" id="tuesdayBtn">Tuesday</button>
+                        </li>
+                        <li class="optionItem">
+                            <button class="optionButton" id="wednesdayBtn">Wednesday</button>
+                        </li>
+                        <li class="optionItem">
+                            <button class="optionButton" id="thursdayBtn">Thursday</button>
+                        </li>
+                        <li class="optionItem">
+                            <button class="optionButton" id="fridayBtn">Friday</button>
+                        </li>
+                    </ol>
+                </div>
+                <h2 class="addText">Of week</h2>
+                <div class="optionContainer">
+                    <ol class="optionList">
+                        <li class="optionItem">
+                            <button class="optionButton" id="anyWeekBtn">Any</button>
+                        </li>
+                        <li class="optionItem">
+                            <button class="optionButton" id="aWeekBtn">A</button>
+                        </li>
+                        <li class="optionItem">
+                            <button class="optionButton" id="bWeekBtn">B</button>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
