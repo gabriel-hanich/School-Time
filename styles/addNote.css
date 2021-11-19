@@ -31,27 +31,24 @@
 
     overflow: hidden;
 
+    display: flex;
+    flex-direction: column;
+
     height: 35px;
-    width: 93px;   
+    width: 100px;   
     
     text-align: center;
 
     transition: all 0.5s ease;
+    background: none;
 }
 
 .optionContainer:hover{
     height: 250px;
+    overflow-y: show;
 }
-
-.optionList{
-    list-style-type: none;
-    margin: 0px;
-    margin-left: -46px;
-}
-
 .optionButton{
     margin-bottom: 5px;
-    margin-left: 7px;
 
     height: 35px;
     width: 85px;
@@ -60,7 +57,6 @@
     background: -webkit-linear-gradient(to left, #fc6767, #ec008c);  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to left, #fc6767, #ec008c); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
-    color: white;
     border: none;
     border-radius: 5px;
 
@@ -71,3 +67,12 @@
     cursor: pointer;
     transform: scale(1.1);
 }
+
+.classOptionContainer{
+    width: 115px;
+}
+
+.classOptionContainer:hover{
+    overflow-y: scroll;
+}
+
