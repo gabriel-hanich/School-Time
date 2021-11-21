@@ -76,3 +76,31 @@
     overflow-y: scroll;
 }
 
+
+
+.noteContentsContainer{
+    border-radius: 5px;
+    margin-top: 10px;
+    background-color: #797c85;
+    text-align: center;
+}
+
+#contentInput{
+    border-radius: 5px;
+    width: 55%;
+    margin: auto;
+    margin-top: 2px;
+    background: #4568DC; 
+    background: -webkit-linear-gradient(to right, #B06AB3, #4568DC);  
+    background: linear-gradient(to right, #B06AB3, #4568DC);
+    border: none;
+    text-align: center;
+}
+
+#contentInput::placeholder{
+    color: rgb(186, 186, 186);
+}
+
+#submitNoteBtn{
+    margin-bottom: 5px;
+}

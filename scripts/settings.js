@@ -1,5 +1,4 @@
 // Code to alternate between settings cards using arrows
-
 var settingsCardsRaw = document.getElementsByClassName("settingsCard");
 var rightArrow = document.getElementById("rightArrow");
 var leftArrow = document.getElementById("leftArrow");
@@ -8,22 +7,25 @@ var settingsDots = document.getElementsByClassName("dot")
 
 var currentCardIndex = 0
 
+// Convert htmlCollection to Array
 var settingsCards = [];
 for(var i=0; i<settingsCardsRaw.length; i++){
     settingsCards.push(settingsCardsRaw[i])
 }
 
+// Ensure no dots are highlighted
 for(var i=0; i<settingsDots.length; i++){
     settingsDots[i].classList.remove("highlightDot")
 }
-
+ // Set the 1st dot to be highlighted
 settingsDots[0].classList.add("highlightDot")
 
+// Bring current card to top (z-index 3 = top)
 settingsCards[currentCardIndex].style = `
 z-index: 3
 `
 
-function moveCards(change){
+function moveCards(change){ // Function to change the card displayed
     var currentCard = settingsCards[currentCardIndex % settingsCards.length]
     if((currentCardIndex % settingsCards.length) + 1 == settingsCards.length){
         var nextCard = settingsCards[0]
@@ -35,7 +37,7 @@ function moveCards(change){
         var nextCard = settingsCards[(currentCardIndex % settingsCards.length) + 1]
     }
     
-    for(var i=0; i<settingsCards.length; i++){
+    for(var i=0; i<settingsCards.length; i++){ // Set all cards to the back
         settingsCards[i].style = `
             z-index:1;
         `
@@ -44,6 +46,7 @@ function moveCards(change){
     for(var i=0; i<settingsDots.slength; i++){
         settingsDots[i].classList.remove("highlightDot")
     }
+    
     oldDot.style = `
         animation-name: moveDotRight;
         animation-duration:250ms
