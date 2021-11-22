@@ -10,7 +10,10 @@ function cleanUpClassName(name){
         return undefined
     }
 }
-
+function cleanBtnId(idName){
+    idName = idName.substring(0, idName.indexOf("Btn"))
+    return idName
+}
 
 // Declare reshuffling for both day and week selectors (bring selected elem to top of the list)
 var dayOptionButtons = document.getElementsByClassName("dayOptionButton");
@@ -121,7 +124,7 @@ function generateAvailableClasses(){ // Generates what classes fit within a give
         }
 
         thisSubOptionContainer.innerHTML = `
-            <button class="classBtn optionButton" id="`+ periodNames[i] +`btn">` + periodNames[i] + `</button>
+            <button class="classBtn optionButton" id="`+ periodNames[i].substring(1) +`Btn">` + periodNames[i] + `</button>
         `;
         classOptionContainer.appendChild(thisSubOptionContainer);
         if(i == 0){
@@ -181,7 +184,7 @@ function saveData(event){
         existingNotes = [];
     }
     var noteContentInput = document.getElementById("contentInput");
-    existingNotes.push(new note(currentWeek.substring(0, currentWeek.indexOf("Btn")), dayBtnIndexes[currentDay], currentClass.substring(currentClass.indexOf("Btn")), noteContentInput.value));
+    existingNotes.push(new note(cleanBtnId(currentWeek), dayBtnIndexes[currentDay], cleanBtnId(currentClass), noteContentInput.value));
     noteContentInput.value="";
     localStorage.removeItem("notesList");
     localStorage.setItem( "notesList", JSON.stringify(existingNotes));
