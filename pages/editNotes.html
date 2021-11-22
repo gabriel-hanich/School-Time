@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Your Notes</title>
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/editNotes.css">
+</head>
+<body>
+    <div class="extensionContainer">
+        <div class="menuBar">
+            <div class="menuLinkContainer" id="homeContainer">
+                <a href="../pages/display.html">
+                    <img src="../resources/icons/home.svg" alt="Home" id="homeIcon" class="menuImg">
+                </a>
+            </div>
+
+            <div class="quickDisplay">
+                <h2>Edit Your Notes</h2>
+            </div>
+
+            <div class="menuLinkContainer highlight" id ="settingsContainer">
+                <a href="../pages/settings.html">
+                    <img src="../resources/icons/cog.svg" alt="Settings" id="settingsIcon" class="menuImg">
+                </a>
+            </div>
+        </div>
+
+
+        <div class="tableContainer">
+           <div class="noteTableHeading">
+               <div class="noteSubjectHeading noteSubject noteData">
+                   <h2>Note Subject</h2>
+               </div>
+               <div class="noteWeekHeading noteWeek noteData">
+                   <h2>Week</h2>
+               </div>
+               <div class="noteDayHeading noteDay noteData">
+                   <h2>Day</h2>
+               </div>
+               <div class="noteContentHeading noteContent noteData">
+                   <h2>Note Content</h2>
+               </div>
+               <div class="noteDelete">
+                   <h2>Delete note</h2>
+               </div>
+           </div>
+           <div class="noteTable">
+               <div class="noteTableRow">
+                    <div class="noteSubject noteData">
+                        <h2>English</h2>
+                    </div>
+                    <div class="noteWeek noteData">
+                        <h2>A</h2>
+                    </div>
+                    <div class="noteDay noteData">
+                        <h2>Tuesday</h2>
+                    </div>
+                    <div class="noteContent noteData">
+                        <h2>Bring English Book</h2>
+                    </div>
+                    <div class="noteDelete noteData">
+                        <img src="../resources/icons/delete.svg" alt="Delete" class="deleteIco">
+                    </div>
+                </div>
+                <div class="noteTableRow">
+                    <div class="noteSubject noteData">
+                        <h2>English</h2>
+                    </div>
+                    <div class="noteWeek noteData">
+                        <h2>A</h2>
+                    </div>
+                    <div class="noteDay noteData">
+                        <h2>Tuesday</h2>
+                    </div>
+                    <div class="noteContent noteData">
+                        <h2>Bring English Book</h2>
+                    </div>
+                    <div class="noteDelete noteData">
+                        <img src="../resources/icons/delete.svg" alt="Delete" class="deleteIco">
+                    </div>
+               </div>
+           </div>
+        </div>
+    </div>
+
+    <script src="../scripts/editNote.js"></script>
+
+</body>
+</html>

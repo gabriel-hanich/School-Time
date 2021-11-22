@@ -76,13 +76,14 @@ var weekBData = JSON.parse(localStorage.getItem("weekBData"));
 var classOptionContainer = document.getElementsByClassName("optionContainer")[2];
 generateAvailableClasses();
 
+var dayBtnIndexes = {"anyDayBtn": "any", "mondayBtn": 1, "tuesdayBtn": 2, "wednesdayBtn":3, "thursdayBtn":4, "fridayBtn":5};
+
 function generateAvailableClasses(){ // Generates what classes fit within a given day and weekType (A, B, Any) parameters and displays them
     var child = classOptionContainer.lastElementChild; // Remove all buttons from the classSelector Container (Reset it)
     while (child) {
         classOptionContainer.removeChild(child);
         child = classOptionContainer.lastElementChild;
     }
-    var dayBtnIndexes = {"anyDayBtn": "any", "mondayBtn": 1, "tuesdayBtn": 2, "wednesdayBtn":3, "thursdayBtn":4, "fridayBtn":5};
     // Find data associated with selected Week
     var weekData = [];
     if(currentWeek == "anyWeekBtn"){
@@ -93,6 +94,8 @@ function generateAvailableClasses(){ // Generates what classes fit within a give
     }else if(currentWeek == "bWeekBtn"){
         weekData = weekBData;
     }
+
+    var dayBtnIndexes = {"anyDayBtn": "any", "mondayBtn": 1, "tuesdayBtn": 2, "wednesdayBtn":3, "thursdayBtn":4, "fridayBtn":5};
     var periodNames = [];
     for(var i=0; i<weekData.length; i++){
         found = false;
@@ -120,8 +123,10 @@ function generateAvailableClasses(){ // Generates what classes fit within a give
         thisSubOptionContainer.innerHTML = `
             <button class="classBtn optionButton" id="`+ periodNames[i] +`btn">` + periodNames[i] + `</button>
         `;
- 
         classOptionContainer.appendChild(thisSubOptionContainer);
+        if(i == 0){
+            currentClass = thisSubOptionContainer.children[0].id
+        }
     }
     assignClassButtonListener(); // Re assign new buttons with an event listener
 }
@@ -131,7 +136,7 @@ function generateAvailableClasses(){ // Generates what classes fit within a give
 
 function reOrderClassList(event){
     var classOptionContainers = document.getElementsByClassName("classSubOptionContainer");
-
+    
     for(var i=0; i<classOptionContainers.length; i++){ // Reset Order
         classOptionContainers[i].style = `
         order: ` + (i + 1).toString() + `;
@@ -139,9 +144,10 @@ function reOrderClassList(event){
     }
     var thisContainter = event.path[1]; // Bring selected one to top of the list
     thisContainter.style = `
-        order: -1;
+    order: -1;
     `;
-
+    currentClass = event.target.id
+    
 }
 
 function assignClassButtonListener(){
@@ -159,8 +165,27 @@ function assignClassButtonListener(){
 var submitBtn = document.getElementById("submitNoteBtn");
 submitBtn.addEventListener("click", saveData);
 
+class note{
+    constructor(weekType, day, className, noteContent){
+        this.weekType = weekType;
+        this.day = day;
+        this.className= className;
+        this.noteContent = noteContent;
+    }
+}
+
 
 function saveData(event){
-
+    var existingNotes = JSON.parse(localStorage.getItem("notesList"));
+    if(existingNotes == null){
+        existingNotes = [];
+    }
+    var noteContentInput = document.getElementById("contentInput");
+    existingNotes.push(new note(currentWeek.substring(0, currentWeek.indexOf("Btn")), dayBtnIndexes[currentDay], currentClass.substring(currentClass.indexOf("Btn")), noteContentInput.value));
+    noteContentInput.value="";
+    localStorage.removeItem("notesList");
+    localStorage.setItem( "notesList", JSON.stringify(existingNotes));
+    window.location.href = "../pages/notesSplit.html";
+    
 }
 

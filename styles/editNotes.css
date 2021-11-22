@@ -1,0 +1,72 @@
+.tableContainer{
+    height: 300px;
+    width: 85%;
+    margin: auto;
+    margin-top: 10px;
+
+    border-radius: 5px;
+}
+.noteTableHeading{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    background-color: #797c85;
+
+    text-align: center;
+}
+
+.noteTable{
+    border-radius: 5px;
+    border-top: none;
+    overflow-y: auto;
+}
+
+.noteTableRow{
+    display: flex;
+
+    height: 70px;
+    width: 100%;
+
+    flex-direction: row;
+}
+
+
+.noteSubject{
+    width: 25%;
+    border-left: #797c85 2px solid;
+}
+
+.noteWeek{
+    width: 15%;
+}
+
+.noteDay{
+    width: 15%;
+}
+
+.noteContent{
+    width: 35%;
+}
+
+.noteDelete{
+    width: 10%;
+}
+
+
+.deleteIco{
+    height: 75%;
+    width: 75%;
+    transition: all 0.2s ease;
+}
+
+.deleteIco:hover{
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+.noteData{
+    text-align: center;
+    border-right: #797c85 2px solid;
+    border-bottom: #797c85 2px solid;;
+}

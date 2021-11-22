@@ -3,7 +3,7 @@ var weekAData = localStorage.getItem("weekAData");
 var debug = true;
 
 if(debug){
-    window.location.href = "../pages/addNote.html"
+    window.location.href = "../pages/editNotes.html"
 }
 else{
     if(weekAData == undefined){
