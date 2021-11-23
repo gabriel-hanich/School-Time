@@ -106,3 +106,17 @@ body{
     transform: scale(1.1);
 }
 
+.returnArrowContainer{
+    width: 35px;
+    height: 35px;
+
+    padding-bottom: 0px;
+
+}
+
+#returnArrow{
+    height: 100%;
+    width: 100%;
+    padding: 0px;
+}
+

@@ -7,17 +7,6 @@
     border-radius: 5px;
 }
 
-.returnArrowContainer{
-    width: 35px;
-    height: 35px;
-}
-
-#returnArrow{
-    height: 100%;
-    width: 100%;
-    
-}
-
 .noteTableHeading{
     display: flex;
     flex-direction: row;
@@ -43,7 +32,6 @@
     flex-direction: row;
 }
 
-
 .noteSubject{
     width: 25%;
     border-left: #797c85 2px solid;
@@ -51,10 +39,14 @@
 
 .noteWeek{
     width: 15%;
+    text-transform: capitalize;
 }
 
 .noteDay{
     width: 15%;
+    font-size: 0.5rem;
+
+    padding-top: 10px;
 }
 
 .noteContent{
@@ -80,5 +72,37 @@
 .noteData{
     text-align: center;
     border-right: #797c85 2px solid;
-    border-bottom: #797c85 2px solid;;
+    border-bottom: #797c85 2px solid;
+    text-align: center;
+}
+
+.emptyMsg{
+    border-radius: 5px;
+    height: 70px;
+    width: 100%;
+
+    background-color: #dd6868;
+
+    justify-content: center;
+
+    text-align: center;
+}
+
+.addBtn{
+    width: 75px;
+    height: 25px;
+
+    border: none;
+    border-radius: 5px;
+
+    background: #ec008c;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #fc6767, #ec008c);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #fc6767, #ec008c); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    transition: all 0.2s ease;
+}
+
+.addBtn:hover{
+    cursor: pointer;
+    transform: scale(1.1);
 }
