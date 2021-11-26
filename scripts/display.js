@@ -1,5 +1,4 @@
 // Calculate what week it is today
-
 var lastWeekA = new Date(localStorage.getItem("lastWeekADate")); // Gather the last date when it was Week A
 var today = new Date();
     
@@ -8,6 +7,18 @@ Date.prototype.addDays = function(days) {
     var date = new Date(this.valueOf());
     date.setDate(date.getDate() + days);
     return date;
+}
+
+function cleanUpClassName(name){ // Removes unnecessary characters from class names
+    if(typeof name != undefined){
+        name = name.substring(name.indexOf(":") + 2);
+        if(name.indexOf("Yr") != -1){
+            name = name.substring(0, name.indexOf("Yr") - 1);
+        }
+        return name
+    }else{
+        return undefined
+    }
 }
 
 // Returns an array with all the dates between to dates
@@ -102,17 +113,49 @@ else if(!isWeekA){
     statusTextString = dayNames[today.getDay()] + " Week B"
     var displayWeekData = weekBData;
 }
+
+// Get noteData
+var noteData = JSON.parse(localStorage.getItem("notesList"));
+
 // Display the data
 for(var i=0; i<2; i++){
+    if(isWeekA){ // Check through notes for when it is week A
+        var possibleNotes = []
+        for(var notesIndex = 0; notesIndex<noteData.length; notesIndex++){
+            if(noteData[notesIndex].weekType == "anyWeek" || noteData[notesIndex].weekType == "aWeek"){
+                if(noteData[notesIndex].day == "anyDay" || parseInt(noteData[notesIndex].day) == parseInt(today.getDay() + i)){
+                    possibleNotes.push(noteData[notesIndex])
+                }
+            }
+        }
+    }else{  // Scan notes only for week B
+        var possibleNotes = []
+        for(var notesIndex = 0; notesIndex<noteData.length; notesIndex++){
+            if(noteData[notesIndex].weekType == "anyWeek" || noteData[notesIndex].weekType == "bWeek"){
+                if(noteData[notesIndex].day == "anyDay" || parseInt(noteData[notesIndex].day) == parseInt(today.getDay() + i)){
+                    possibleNotes.push(noteData[notesIndex])
+                }
+            }
+        }
+    }
+    console.log(possibleNotes)
     for(var k=0; k<displayWeekData.length; k++){
         if(displayWeekData[k].datePair[0].getDay() == today.getDay() + i){
             var newRow = tables[i].insertRow(-1);
             var periodCell = newRow.insertCell(0);
             var dataCell = newRow.insertCell(1);
             
-            var className = displayWeekData[k].className.substring(displayWeekData[k].className.indexOf(":") + 1)
-            if(className.indexOf("Yr") !== -1){
-                className = className.substring(0, className.indexOf("Yr"))
+            var className = cleanUpClassName(displayWeekData[k].className);
+            var hasNote = false;
+            for(var noteIndex = 0; noteIndex < possibleNotes.length; noteIndex++){
+                if(className == possibleNotes[noteIndex].className){
+                    hasNote = true;
+                    break;
+                }
+            }
+
+            if(hasNote){
+                console.log(possibleNotes[noteIndex])
             }
             
 
@@ -194,26 +237,49 @@ for(var i=0; i<2; i++){
                 `
                 
             }else{
-                dataCell.innerHTML = `
-                <tr>
-                    <div class="dataRow">
-                        <div class="numberBox tableBox ">
-                            <h2>` + displayWeekData[k].period[0] + `</h2>
-                        </div>  
-                        <div class="` + dataCellClassList + `">
-                            <div class="periodInfo"><h2 class="className classData">` + className +  `</h2></div>
-                            <div class="periodInfo">
-                                <h2 class="location classData">` + displayWeekData[k].location + `</h2>
-                                <img src="../resources/icons/notesIco.svg" alt="notification" class="notifIco">
+                if(!hasNote){
+                    dataCell.innerHTML = `
+                    <tr>
+                        <div class="dataRow">
+                            <div class="numberBox tableBox ">
+                                <h2>` + displayWeekData[k].period[0] + `</h2>
+                            </div>  
+                            <div class="` + dataCellClassList + `">
+                                <div class="periodInfo"><h2 class="className classData">` + className +  `</h2></div>
+                                <div class="periodInfo">
+                                    <h2 class="location classData">` + displayWeekData[k].location + `</h2>
+                                </div>
+                                <div class="periodInfo"><h2 class="teacher classData">` + displayWeekData[k].teacher.toLowerCase() + `</h2></div>
                             </div>
-                            <div class="periodInfo"><h2 class="teacher classData">` + displayWeekData[k].teacher.toLowerCase() + `</h2></div>
+                            <div class="timeBox ` + dataCellClassList + ` hidden">
+                                <h2 class="startTime classData timeData">Start: ` + dateStringPair[0] +  `</h2>
+                                <h2 class="endTime classData timeData">End: ` + dateStringPair[1] + `</h2>
+                            </div>
                         </div>
-                        <div class="timeBox ` + dataCellClassList + ` hidden">
-                            <h2 class="startTime classData timeData">Start: ` + dateStringPair[0] +  `</h2>
-                            <h2 class="endTime classData timeData">End: ` + dateStringPair[1] + `</h2>
+                    </tr>`
+                }else{
+                    dataCell.innerHTML = `
+                    <tr>
+                        <div class="dataRow">
+                            <div class="numberBox tableBox ">
+                                <h2>` + displayWeekData[k].period[0] + `</h2>
+                            </div>  
+                            <div class="` + dataCellClassList + `">
+                                <div class="periodInfo"><h2 class="className classData">` + className +  `</h2></div>
+                                <div class="periodInfo">
+                                    <h2 class="location classData">` + displayWeekData[k].location + `</h2>
+                                    <img src="../resources/icons/notesIco.svg" alt="notification" class="notifIco">
+                                </div>
+                                <div class="periodInfo"><h2 class="teacher classData">` + displayWeekData[k].teacher.toLowerCase() + `</h2></div>
+                            </div>
+                            <div class="timeBox ` + dataCellClassList + ` hidden">
+                                <h2 class="startTime classData timeData">Start: ` + dateStringPair[0] +  `</h2>
+                                <h2 class="endTime classData timeData">End: ` + dateStringPair[1] + `</h2>
+                            </div>
                         </div>
-                    </div>
-                </tr>`
+                    </tr>`
+
+                }
             }
         }
     }
@@ -242,7 +308,6 @@ for(var i=0; i<datesBetween.length; i++){
 }
 
 var thisweekNumber = parseInt(weeksCount) + parseInt(lastRecordedWeekNumber);
-console.log(thisweekNumber);
 
 var weekBubble = document.getElementById("weekBubble");
 weekBubble.innerHTML = `

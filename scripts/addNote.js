@@ -3,7 +3,7 @@ function cleanUpClassName(name){
     if(typeof name != undefined){
         name = name.substring(name.indexOf(":") + 1);
         if(name.indexOf("Yr") != -1){
-            name = name.substring(0, name.indexOf("Yr"));
+            name = name.substring(0, name.indexOf("Yr") - 1);
         }
         return name
     }else{
