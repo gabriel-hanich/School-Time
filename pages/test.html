@@ -1,0 +1,20 @@
+<tr>
+    <div class="dataRow">
+        
+        <div class="numberBox tableBox ">
+            <h2>` + displayWeekData[k].period[0] + `</h2>
+        </div>
+        <div class="` + dataCellClassList + `">
+            <div class="periodInfo"><h2 class="className classData">` + className +  `</h2></div>
+            <div class="periodInfo notePeriodInfo"><h2 class="location classData">` + displayWeekData[k].location + `</h2></div>
+            <div class="periodInfo"><h2 class="teacher classData">` + displayWeekData[k].teacher.toLowerCase() + `</h2></div>
+        </div>
+        <div class="noteInfo">
+            <h2>` + possibleNotes[noteIndex].noteContent + `</h2>
+        </div>
+        <div class="timeBox ` + dataCellClassList + ` hidden">
+            <h2 class="startTime classData timeData">Start: ` + dateStringPair[0] +  `</h2>
+            <h2 class="endTime classData timeData">End: ` + dateStringPair[1] + `</h2>
+        </div>
+    </div>
+</tr>`

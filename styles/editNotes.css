@@ -20,7 +20,9 @@
 .noteTable{
     border-radius: 5px;
     border-top: none;
-    overflow-y: auto;
+    height: 250px;
+    padding-bottom: 20px;
+    overflow-y: scroll;
 }
 
 .noteTableRow{

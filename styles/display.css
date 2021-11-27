@@ -78,3 +78,17 @@
     height: 15px;
     width: 15px;
 }
+
+.notePeriodInfo{
+    display: block;
+}
+
+.noteInfo{
+    background: #4568DC; 
+    background: -webkit-linear-gradient(to right, #B06AB3, #4568DC);  
+    background: linear-gradient(to right, #B06AB3, #4568DC);
+    border-radius: 5px;
+
+    width: 75%;
+    height: fit-content ;
+}

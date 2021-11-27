@@ -1,6 +1,7 @@
 // Calculate what week it is today
 var lastWeekA = new Date(localStorage.getItem("lastWeekADate")); // Gather the last date when it was Week A
 var today = new Date();
+today.setDate(30);
     
 // Function that gets the date a specified numeber of days after a given day
 Date.prototype.addDays = function(days) { 
@@ -123,22 +124,21 @@ for(var i=0; i<2; i++){
         var possibleNotes = []
         for(var notesIndex = 0; notesIndex<noteData.length; notesIndex++){
             if(noteData[notesIndex].weekType == "anyWeek" || noteData[notesIndex].weekType == "aWeek"){
-                if(noteData[notesIndex].day == "anyDay" || parseInt(noteData[notesIndex].day) == parseInt(today.getDay() + i)){
-                    possibleNotes.push(noteData[notesIndex])
+                if(noteData[notesIndex].day == "any" || parseInt(noteData[notesIndex].day) == parseInt(today.getDay() + i)){
+                    possibleNotes.push(noteData[notesIndex]);
                 }
             }
         }
-    }else{  // Scan notes only for week B
+    }if(!isWeekA){  // Scan notes only for week B
         var possibleNotes = []
         for(var notesIndex = 0; notesIndex<noteData.length; notesIndex++){
             if(noteData[notesIndex].weekType == "anyWeek" || noteData[notesIndex].weekType == "bWeek"){
-                if(noteData[notesIndex].day == "anyDay" || parseInt(noteData[notesIndex].day) == parseInt(today.getDay() + i)){
+                if(noteData[notesIndex].day == "any" || parseInt(noteData[notesIndex].day) == parseInt(today.getDay() + i)){
                     possibleNotes.push(noteData[notesIndex])
                 }
             }
         }
     }
-    console.log(possibleNotes)
     for(var k=0; k<displayWeekData.length; k++){
         if(displayWeekData[k].datePair[0].getDay() == today.getDay() + i){
             var newRow = tables[i].insertRow(-1);
@@ -148,14 +148,10 @@ for(var i=0; i<2; i++){
             var className = cleanUpClassName(displayWeekData[k].className);
             var hasNote = false;
             for(var noteIndex = 0; noteIndex < possibleNotes.length; noteIndex++){
-                if(className == possibleNotes[noteIndex].className){
+                if(className == possibleNotes[noteIndex].className || className == possibleNotes[noteIndex].className.substring(0, possibleNotes[noteIndex].className.length - 4)){
                     hasNote = true;
                     break;
                 }
-            }
-
-            if(hasNote){
-                console.log(possibleNotes[noteIndex])
             }
             
 
@@ -263,12 +259,14 @@ for(var i=0; i<2; i++){
                         <div class="dataRow">
                             <div class="numberBox tableBox ">
                                 <h2>` + displayWeekData[k].period[0] + `</h2>
-                            </div>  
+                            </div>
                             <div class="` + dataCellClassList + `">
                                 <div class="periodInfo"><h2 class="className classData">` + className +  `</h2></div>
-                                <div class="periodInfo">
+                                <div class="periodInfo notePeriodInfo">
                                     <h2 class="location classData">` + displayWeekData[k].location + `</h2>
-                                    <img src="../resources/icons/notesIco.svg" alt="notification" class="notifIco">
+                                    <div class="noteInfo">
+                                        <h2>` + possibleNotes[noteIndex].noteContent + `</h2>
+                                    </div>
                                 </div>
                                 <div class="periodInfo"><h2 class="teacher classData">` + displayWeekData[k].teacher.toLowerCase() + `</h2></div>
                             </div>

@@ -1,7 +1,7 @@
 // Return subject name (i.e English) from class title 
-function cleanUpClassName(name){
+function cleanUpClassName(name){ // Removes unnecessary characters from class names
     if(typeof name != undefined){
-        name = name.substring(name.indexOf(":") + 1);
+        name = name.substring(name.indexOf(":") + 2);
         if(name.indexOf("Yr") != -1){
             name = name.substring(0, name.indexOf("Yr") - 1);
         }
@@ -119,12 +119,14 @@ function generateAvailableClasses(){ // Generates what classes fit within a give
         var thisSubOptionContainer = document.createElement("div");
         thisSubOptionContainer.classList.add("classSubOptionContainer");
 
+        fullClassname = periodNames[i];
+
         if(periodNames[i].length > 17){ // Shorten class names 
             periodNames[i] = periodNames[i].substring(0, 13) + "...";
         }
 
         thisSubOptionContainer.innerHTML = `
-            <button class="classBtn optionButton" id="`+ periodNames[i].substring(1) +`Btn">` + periodNames[i] + `</button>
+            <button class="classBtn optionButton" id="`+ fullClassname +`Btn">` + periodNames[i] + `</button>
         `;
         classOptionContainer.appendChild(thisSubOptionContainer);
         if(i == 0){
