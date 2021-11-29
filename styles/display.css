@@ -79,8 +79,8 @@
     width: 15px;
 }
 
-.notePeriodInfo{
-    display: block;
+.notePeriodRow{
+    height: auto;
 }
 
 .noteInfo{
@@ -90,5 +90,8 @@
     border-radius: 5px;
 
     width: 75%;
-    height: fit-content ;
+    height: fit-content;
+
+    padding: 0px;
+    margin: 0px;
 }

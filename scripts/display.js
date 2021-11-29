@@ -260,7 +260,7 @@ for(var i=0; i<2; i++){
                             <div class="numberBox tableBox ">
                                 <h2>` + displayWeekData[k].period[0] + `</h2>
                             </div>
-                            <div class="` + dataCellClassList + `">
+                            <div class="` + dataCellClassList + ` notePeriodRow">
                                 <div class="periodInfo"><h2 class="className classData">` + className +  `</h2></div>
                                 <div class="periodInfo notePeriodInfo">
                                     <h2 class="location classData">` + displayWeekData[k].location + `</h2>
