@@ -72,26 +72,3 @@
     padding-top: 0px;
     font-size: 0.9rem;
 }
-
-.notifIco{
-    margin-bottom: 0px;
-    height: 15px;
-    width: 15px;
-}
-
-.notePeriodRow{
-    height: auto;
-}
-
-.noteInfo{
-    background: #4568DC; 
-    background: -webkit-linear-gradient(to right, #B06AB3, #4568DC);  
-    background: linear-gradient(to right, #B06AB3, #4568DC);
-    border-radius: 5px;
-
-    width: 75%;
-    height: fit-content;
-
-    padding: 0px;
-    margin: 0px;
-}
