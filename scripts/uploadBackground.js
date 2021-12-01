@@ -11,7 +11,6 @@ reader.addEventListener('load', function(event){
     catch (e) {
         alert("Welp, That Image is too big, Try using a smaller one")
     }
-    localStorage.setItem("imgUrl", JSON.stringify(reader.result)); // Save image URL in localStorage
     window.location.href = "../pages/display.html";
 });
 

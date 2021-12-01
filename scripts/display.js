@@ -38,11 +38,11 @@ function generatePeriodInfoBox(classObj, doHighlight, minutesOfClassLeft, notesL
     var htmlString = `
     <tr>
         <div class="dataRow">
-            <div class="numberBox">
+            <div class="numberBox tableBox">
                 <h2>` + classObj.period[0] + `</h2>
             </div>
 
-            <div class="periodInfoBox notePeriodInfoBox dataBox`
+            <div class="periodInfoBox notePeriodInfoBox dataBox tableBox`
             
     if(doHighlight){ // Add highlight to box if necessary
         htmlString += " highlightClass"
