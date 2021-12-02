@@ -1,5 +1,18 @@
+<<<<<<< Updated upstream
 .periodBox{
     border-radius: 2px;
+=======
+.dataRow{
+    display: flex;
+    flex-direction: row;
+    overflow-x: hidden;
+}
+
+.periodInfoBox{
+    flex: 0.95;
+    gap: 0.5px;
+    
+>>>>>>> Stashed changes
     text-align: center;
     font-size: 0.5rem;
     padding: 0px;
@@ -54,6 +67,9 @@
     height: 100%;
 }
 
+.classData{
+    text-transform: capitalize;
+}
 
 
 .highlightClass{

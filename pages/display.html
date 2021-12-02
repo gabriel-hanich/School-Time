@@ -10,8 +10,9 @@
     <link rel="stylesheet" href="../styles/display.css">
 </head>
 <body>
+    <!-- Show user their timetable for today and tomorrow (Home screen) -->
     <div class="extensionContainer">
-
+        <!-- Menu Bar on top of screen -->
         <div class="menuBar">
             <div class="menuLinkContainer highlight" id="homeContainer">
                 <a href="../pages/display.html">
@@ -29,25 +30,25 @@
             </div>
         </div>
 
-        <div class="headingContainer" id="displayHeading"></div>
-
         <div class="tableContainer">
             <div id="todayTableContainer" class="bigTable">
                 <table id="todayTable">
                     <tr>
-                        <div class="periodBox dayHeading tableBox">
+                        <div class="periodInfoBox dayHeading tableBox">
                             <h1>Today</h1>
                         </div>
                     </tr>
                 </table>
             </div>
+
+            <!-- Button to show the times of each class -->
             <div class="flipContainer">
                 <button id="flipBtn">Show times</button>
             </div>
             <div id="tomorrowTableContainer" class="bigTable">
                 <table id="tomorrowTable">
                     <tr>
-                        <div class="periodBox dayHeading tableBox">
+                        <div class="periodInfoBox dayHeading tableBox">
                             <h1>Tomorrow</h1>
                         </div>
                     </tr>
@@ -62,7 +63,11 @@
         </div>
 
     </div> <!-- End of extension Container-->
+<<<<<<< Updated upstream
 
+=======
+    
+>>>>>>> Stashed changes
     <script src="../scripts/display.js"></script>
 </body>
 </html>

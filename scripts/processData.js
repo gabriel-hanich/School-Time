@@ -1,3 +1,5 @@
+// Convert .iCal data to class based 
+
 var fileUploader = document.getElementById("fileUpload");
 var errorBox = document.getElementById("uploadErrorBox");
 

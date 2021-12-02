@@ -1,0 +1,134 @@
+.settingsOptionContainer{
+    margin-left: 15px;
+}
+
+<<<<<<< Updated upstream:styles/settings.css
+.settingsHeading{
+    text-decoration: underline;
+}
+
+.wipeDataContainer{
+    margin-left: 10px;
+}
+
+.settingsSubHeading{
+    font-weight: 400;
+}
+
+.settingsBtn{
+    background: #2c3e50;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #3498db, #2c3e50);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #3498db, #2c3e50); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+=======
+#leftArrowContainer{
+    top: 50%;
+    left: 25px;
+}
+
+#rightArrowContainer{
+    top: 50%;
+    right: 25px;
+}
+
+.arrow{
+    height: 50px;
+    width: 50px;
+    transition: all 0.5s ease;
+    border-radius: 50%;
+}
+
+.arrow:hover{
+    cursor: pointer;
+    background-color: #3F5EFB;
+
+}
+
+.cardContainer{
+    width: 75%;
+    height: 275px;
+    position: relative;
+    margin: auto;
+    margin-top: 10px;
+}
+
+.card{
+    position: absolute;
+    left: 50%;
+    
+    z-index: 1;
+
+    height: 85%;
+    width: 50%;
+
+    margin-left: -25%;
+    border-radius: 15px;
+
+    text-align: center;
+    background: #009FFF;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #ec2F4B, #009FFF);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #ec2F4B, #009FFF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+.cardIcon{
+    height: 50px;
+    width: 50px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.cardBtn{
+    flex: 1;
+
+    background: #ec008c;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #fc6767, #ec008c);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #fc6767, #ec008c); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    margin-top: 10px;
+
+    text-decoration: none;
+    text-emphasis: 100;
+    font-size: 1rem;
+>>>>>>> Stashed changes:styles/cards.css
+    border: none;
+    width: 100px;
+    height: 35px;
+    border-radius: 5px;
+    transition: all 0.25s ease; 
+}
+
+<<<<<<< Updated upstream:styles/settings.css
+.settingsBtn:hover{
+    cursor: pointer;
+    transform: scale(1.15);
+}
+
+.resetWeekContainer{
+    margin-left: 10px;
+=======
+.cardBtn:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.cardHeading{
+    margin-top: 5px;
+}
+
+.cardExplainer{
+    margin-top: 0px;
+>>>>>>> Stashed changes:styles/cards.css
+}
+
+.customBackgroundContainer{
+    margin-left: 15px;
+}
+
+#bgBtn{
+    margin-bottom: 10px;
+}
+
+.sourceBtn{
+    margin-top: 5px;
+
+}

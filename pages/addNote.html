@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add a note</title>
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/addNote.css">
+</head>
+<body>
+    <!-- Add a note for a specific subject -->
+    <div class="extensionContainer">
+        <!-- Menu Bar code -->
+        <div class="menuBar">
+            <div class="menuLinkContainer" id="homeContainer">
+                <a href="../pages/display.html">
+                    <img src="../resources/icons/home.svg" alt="Home" id="homeIcon" class="menuImg">
+                </a>
+            </div>
+
+            <div class="quickDisplay">
+                <h2>Add a note</h2>
+            </div>
+
+            <div class="menuLinkContainer highlight" id ="settingsContainer">
+                <a href="../pages/settings.html">
+                    <img src="../resources/icons/cog.svg" alt="Settings" id="settingsIcon" class="menuImg">
+                </a>
+            </div>
+        </div>
+        <div class="returnArrowContainer">
+            <a href="../pages/notesSplit.html">
+                <img src="../resources/icons/leftArrrow.svg" alt="Back Arrow" id="returnArrow">
+            </a>
+        </div>
+        <div class="addContainer">
+            <div class="addTextContainer">
+                <h2 class="addText">On</h2>
+                <div class="optionContainer"> <!-- List of options for possible School Days-->
+                    <div class="daySubOptionContainer subOptionContainer">
+                        <button class="dayOptionButton optionButton" id="anyDayBtn">Any Day</button>
+                    </div>
+                    <div class="daySubOptionContainer">
+                        <button class="dayOptionButton optionButton" id="mondayBtn">Monday</button>
+                    </div>
+                    <div class="daySubOptionContainer">
+                        <button class="dayOptionButton optionButton" id="tuesdayBtn">Tuesday</button>
+                    </div>
+                    <div class="daySubOptionContainer">
+                        <button class="dayOptionButton optionButton" id="wednesdayBtn">Wednesday</button>
+                    </div>
+                    <div class="daySubOptionContainer">
+                        <button class="dayOptionButton optionButton" id="thursdayBtn">Thursday</button>
+                    </div>
+                    <div class="daySubOptionContainer">
+                        <button class="dayOptionButton optionButton" id="fridayBtn">Friday</button>
+                    </div>
+                </div>
+                <h2 class="addText">Of week</h2>
+                <div class="optionContainer">
+                    <div class="weekSubOptionContainer"> <!-- Options for weeks (A, B, Any)-->
+                        <button class="weekOptionButton optionButton" id="anyWeekBtn">Any</button>
+                    </div>
+                    <div class="weekSubOptionContainer">
+                        <button class="weekOptionButton optionButton" id="aWeekBtn">A</button>
+                    </div>
+                    <div class="weekSubOptionContainer">
+                        <button class="weekOptionButton optionButton" id="bWeekBtn">B</button>
+                    </div>
+                </div>
+                <h2 class="optionText">For class</h2> <!-- Avaible classes, (handled by JS)-->
+                <div class="optionContainer classOptionContainer">
+
+                </div>
+            </div>
+            <div class="noteContentsContainer"> <!-- Field to input note text-->
+                <h2>Add Note Saying</h2>
+                <form action="">
+                    <input type="text" name="contentInput" id="contentInput" placeholder="Bring sports uniform">
+                </form>
+                <button class="sourceBtn" id="submitNoteBtn">Submit</button>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="../scripts/addNote.js"></script>
+</body>
+</html>

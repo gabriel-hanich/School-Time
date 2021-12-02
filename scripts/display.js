@@ -20,6 +20,72 @@ function getDatesBetween(startDate, stopDate) {
     }
     return dateArray;
 }
+<<<<<<< Updated upstream
+=======
+
+// Function that generates HTML for a row of the timetable
+function generatePeriodInfoBox(classObj, doHighlight, minutesOfClassLeft, notesList, dateStringPair){ 
+    // Code that establishes the periodNumberBox and opens the main div
+    var htmlString = `
+    <tr>
+        <div class="dataRow">
+            <div class="numberBox tableBox">
+                <h2>` + classObj.period[0] + `</h2>
+            </div>
+
+            <div class="periodInfoBox notePeriodInfoBox dataBox tableBox`
+            
+    if(doHighlight){ // Add highlight to box if necessary
+        htmlString += " highlightClass"
+    }
+    htmlString += `">
+            <div class="periodInfoContainer notePeriodInfoContainer">
+                <div class="periodInfo"><h2 class="className classData">` + cleanUpClassName(classObj.className) +  `</h2></div>
+                <div class="periodInfo"><h2 class="location classData">` + classObj.location + `</h2></div>
+                <div class="periodInfo"><h2 class="teacher classData">` + classObj.teacher.toLowerCase() + `</h2></div>
+            </div>
+    `
+
+    if(notesList.length != 0){ // Add any notes present
+        htmlString += `
+            <div class="noteContainer">`
+        for(var notes=0; notes < notesList.length; notes++){
+            htmlString += `
+                <div class="note">
+                    <h2 class="noteText">` + notesList[notes].noteContent + `</h2>
+                </div>`
+        }
+        htmlString += `
+            </div>
+        `
+    }
+    // Code for timeBoxes 
+    htmlString += `
+        </div>
+        <div class="timeBox periodBox tableBox dataBox`
+    if(doHighlight){
+        htmlString += ` highlightClass`
+    }
+    htmlString += ` highlightCell hidden">
+            <h2 class="startTime classData timeData">Start: ` + dateStringPair[0] +  `</h2>
+            <h2 class="endTime classData timeData">End: ` + dateStringPair[1] + `</h2>`
+
+    if(doHighlight){ // Add highlight classes to timebox if necessary
+        htmlString += `
+            <h2 class="classData timeData highlightTime">Time left:` + minutesOfClassLeft + ` min</h2>`
+    }
+    // Close off final divs
+    htmlString += `
+            </div>
+        </tr>
+    `
+    console.log(htmlString)
+    return htmlString
+}
+
+
+
+>>>>>>> Stashed changes
 // Calculate number of sundays between the two days
 var datesBetween =  getDatesBetween(lastWeekA.addDays(1), today);
 weeksCount = 0;

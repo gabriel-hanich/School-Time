@@ -7,10 +7,12 @@
     <title>Settings</title>
     <link rel="stylesheet" href="../styles/style.css">
     <link rel="stylesheet" href="../styles/settings.css">
+    <link rel="stylesheet" href="../styles/cards.css">
 </head>
 <body>
+    <!-- Settings interface for user -->
     <div class="extensionContainer">
-
+        <!-- Menu bar -->
         <div class="menuBar">
             <div class="menuLinkContainer" id="homeContainer">
                 <a href="../pages/display.html">
@@ -35,6 +37,7 @@
             <h1>Settings</h1>
         </div>
 
+<<<<<<< Updated upstream
         <div class="settingsOptionContainer">
             <h2 class="settingsHeading">Wipe your Data</h2>
             <div class="wipeDataContainer">
@@ -51,10 +54,58 @@
                 <h3 class="settingsSubHeading">Upload a custom image to use as a background</h3>
                 <button id="bgBtn" class="settingsBtn">Background</button>
             </div>
+=======
+
+        <div class="cardContainer">
+            <div class="card" id="wipeCard"> <!-- Delete all data stored-->
+                <h2 class="cardHeading">Wipe Your Data</h2>
+                <img src="../resources/icons/delete.svg" alt="Delete" class="cardIcon">
+                <h3 class="cardExplainer">Completely erase your data from the extension</h3>
+                <button class="cardBtn" id="wipeBtn">Erase Data</button>
+            </div>
+            <div class="card" id="resetCard"> <!-- Reset week letter and number -->
+                <h2 class="cardHeading">Reset what week it is</h2>
+                <img src="../resources/icons/circleArrows.svg" alt="Reset" class="cardIcon">
+                <h3 class="cardExplainer">Change what week (A or B) it is as well as the week number</h3>
+                <button class="cardBtn" id="resetBtn">Reset</button>
+            </div>
+            <div class="card" id="imgCard"> <!-- Add a custom image as background -->
+                <h2 class="cardHeading">Upload a custom background image</h2>
+                <img src="../resources/icons/imageIco.svg" alt="Upload" class="cardIcon">
+                <h3 class="cardExplainer">Upload an image to use as a background</h3>
+                <button class="cardBtn" id="bakgroundImgBtn">Upload</button>
+            </div>
+            <div class="card" id="notesCard"> <!-- Takes user to notesSplit area -->
+                <h2 class="cardHeading">Add a note for a class</h2>
+                <img src="../resources/icons/stickyNote.svg" alt="Upload" class="cardIcon">
+                <h3 class="cardExplainer">Easily remember what equipment or preparation you need to do before a class with notes</h3>
+                <button class="cardBtn" id="noteBtn">Add</button>
+            </div>
+            <div class="card" id="sourceCardCode"> <!-- Open source goes YES -->
+                <h2 class="cardHeading">View the code!</h2>
+                <img src="../resources/icons/githubLogo.svg" alt="Upload" class="cardIcon">
+                <h3 class="cardExplainer">Take a look at the github for the project</h3>
+                <a href="https://github.com/gabriel-hanich/School-Timetable" target="_blank">
+                    <button class="cardBtn">Source Code</button>
+                </a>
+            </div>
+        </div>
+
+        <!-- Dots show user how far through they are -->
+        <div id="dotsContainer">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+
+>>>>>>> Stashed changes
 
         </div>
     </div>
 
     <script src="../scripts/settings.js"></script>
+    <script src="../scripts/cards.js"></script>
 </body>
 </html>

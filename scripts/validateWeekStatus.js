@@ -13,6 +13,80 @@ class periodClass{
         
     }
 }
+
+function cleanUpClassName(name){ // Removes unnecessary characters from class names
+    if(typeof name != undefined){
+        name = name.substring(name.indexOf(":") + 2);
+        if(name.indexOf("Yr") != -1){
+            name = name.substring(0, name.indexOf("Yr") - 1);
+        }
+        return name
+    }else{
+        return undefined
+    }
+}
+
+
+
+function generatePeriodInfoBox(classObj, doHighlight, minutesOfClassLeft, notesList, dateStringPair){ 
+    // Code that establishes the periodNumberBox and opens the main div
+    var htmlString = `
+    <tr>
+        <div class="dataRow">
+            <div class="numberBox tableBox">
+                <h2>` + classObj.period[0] + `</h2>
+            </div>
+
+            <div class="periodInfoBox notePeriodInfoBox dataBox tableBox`
+            
+    if(doHighlight){ // Add highlight to box if necessary
+        htmlString += " highlightClass"
+    }
+    htmlString += `">
+            <div class="periodInfoContainer notePeriodInfoContainer">
+                <div class="periodInfo"><h2 class="className classData">` + cleanUpClassName(classObj.className) +  `</h2></div>
+                <div class="periodInfo"><h2 class="location classData">` + classObj.location + `</h2></div>
+                <div class="periodInfo"><h2 class="teacher classData">` + classObj.teacher.toLowerCase() + `</h2></div>
+            </div>
+    `
+
+    if(notesList.length != 0){ // Add any notes present
+        htmlString += `
+            <div class="noteContainer">`
+        for(var notes=0; notes < notesList.length; notes++){
+            htmlString += `
+                <div class="note">
+                    <h2 class="noteText">` + notesList[notes].noteContent + `</h2>
+                </div>`
+        }
+        htmlString += `
+            </div>
+        `
+    }
+    // Code for timeBoxes 
+    htmlString += `
+        </div>
+        <div class="timeBox periodBox tableBox dataBox`
+    if(doHighlight){
+        htmlString += ` highlightClass`
+    }
+    htmlString += ` highlightCell hidden">
+            <h2 class="startTime classData timeData">Start: ` + dateStringPair[0] +  `</h2>
+            <h2 class="endTime classData timeData">End: ` + dateStringPair[1] + `</h2>`
+
+    if(doHighlight){ // Add highlight classes to timebox if necessary
+        htmlString += `
+            <h2 class="classData timeData highlightTime">Time left:` + minutesOfClassLeft + ` min</h2>`
+    }
+    // Close off final divs
+    htmlString += `
+            </div>
+        </tr>
+    `
+    console.log(htmlString)
+    return htmlString
+}
+
 var weekA = [];
 for(var i=0; i<weekAData.length; i++){
     var datePair = [];
@@ -37,22 +111,10 @@ var table = document.getElementById("mondayTable")
 for(var i=0; i<weekA.length; i++){
     if(weekA[i].datePair[0].getDay() == 1){
         var newRow = table.insertRow(-1);
-        var periodCell = newRow.insertCell(0);
-        var dataCell = newRow.insertCell(1);
-        periodCell.innerHTML = `<tr>
-                                    <div class="numberBox">
-                                        <h2>` + weekA[i].period + `</h2>
-                                    </div>
-                                </tr>`
+        var dataCell = newRow.insertCell(0);
 
-        dataCell.innerHTML = `<tr>
-                                <div class="periodBox">
-                                    <h2 class="className classData">` + weekA[i].className +  `</h2>
-                                    <h2 class="location classData">` + weekA[i].location + `</h2>
-                                    <h2 class="teacher classData">` + weekA[i].teacher + `</h2>
-                                </div>
-                            </tr>
-                            `
+        dataCell.innerHTML = generatePeriodInfoBox(weekA[i], false, 0, [], [])
+
     }
 }
 

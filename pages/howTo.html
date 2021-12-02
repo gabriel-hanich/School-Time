@@ -4,46 +4,61 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>How to get Ical</title>
-    <link rel="stylesheet" href="../styles/howto.css">
+    <title>Settings</title>
     <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/cards.css">
+    <link rel="stylesheet" href="../styles/howto.css">
 </head>
 <body>
+    <!-- Explain how to download .ical file to user -->
     <div class="extensionContainer">
         <div class="headingContainer">
             <h1>How to begin setup</h1>
         </div>
-        <div class="stepsContainer">
-            <div class="stepOuterContainer" id="s1Outer">
-                <h2>Step 1 ↓</h2>
-                <div class="stepInnerContainer" id="s1Inner">
-                    <h3>Navigate to your sentral</h3>
-                    <a href="https://smithshill-h.sentral.com.au/portal2/#!/login" target="_blank">
-                        <button class="setupBtn">Sentral</button>
-                    </a>
-                </div>
-            </div>
-            <div class="stepOuterContainer" id="s2Outer">
-                <h2>Step 2 ↓</h2>
-                <div class="stepInnerContainer" id="s2Inner">
-                    <h3>Locate your 'My Timetable' section</h3>
-                    <img src="../resources/img/myTimetable.png" alt="Your Timetable">
-                </div>
-            </div>
-            <div class="stepOuterContainer" id="s3Outer">
-                <h2>Step 3 ↓</h2>
-                <div class="stepInnerContainer" id="s3Inner">
-                    <h3>Press 'Export as iCal button and save the file somewhere on your computer</h3>
-                    <img src="../resources/img/download.png" alt="Download iCal file" id="downloadImg">
-                </div>
-            </div>
 
-            <div class="btnContainer">
-                <a href="../pages/uploadFile.html">
-                    <button class="continueBtn setupBtn">Continue</button>
+        <!-- Container holding all the cards -->
+        <div class="cardContainer">
+            <div class="card" id="navigateCard">
+                <h2 class="cardHeading">Navigate to your sentral and sign in</h2>
+                <a href="https://smithshill-h.sentral.com.au/portal2/#!/login" target="_blank">
+                    <button class="cardBtn" id="sentralBtn">Sentral</button>
                 </a>
             </div>
+            <div class="card" id="timetableCard">
+                <h2 class="cardHeading">Navigate to the 'Your Timetable' section</h2>
+                <img src="../resources/img/myTimetable.png" alt="Your timetable" class="cardIcon">
+                <h3 class="cardExplainer">On the left menu bar open the 'Your Timetable' section</h3>
+            </div>
+            <div class="card" id="imgCard">
+                <h2 class="cardHeading">Download your timetable</h2>
+                <img src="../resources/img/download.png" alt="Your timetable" class="cardIcon">
+                <h3 class="cardExplainer">Press the 'Export as iCal' Button to download your timetable</h3>
+            </div>
         </div>
+
+        <!-- Dots that show which card user is up to -->
+        <div id="dotsContainer">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+
+        <!-- Allows user to progress to next setup phase -->
+        <div class="nextContainer">
+            <a href="../pages/uploadFile.html">
+                <button class="nextBtn">Skip</button>
+            </a>
+        </div>
+
+
+
+
+        <div class="arrowContainer" id="rightArrowContainer">
+            <img id="rightArrow" src="../resources/icons/rightArrow.svg" alt="rightArrow" class="arrow">
+        </div>
+
     </div>
+
+    <script src="../scripts/cards.js"></script>
 </body>
 </html>
