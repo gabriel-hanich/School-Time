@@ -8,5 +8,6 @@ submitBtn.addEventListener("click", function(event){
 
     var weekArray = [weekNumberText, new Date()];
     localStorage.setItem("weekNumber", weekArray);
+    localStorage.setItem("notesList", JSON.stringify([]));
     window.location.href = "../pages/display.html";
 });

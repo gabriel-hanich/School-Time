@@ -1,13 +1,24 @@
 // Calculate what week it is today
-
 var lastWeekA = new Date(localStorage.getItem("lastWeekADate")); // Gather the last date when it was Week A
 var today = new Date();
-
+    
 // Function that gets the date a specified numeber of days after a given day
 Date.prototype.addDays = function(days) { 
     var date = new Date(this.valueOf());
     date.setDate(date.getDate() + days);
     return date;
+}
+
+function cleanUpClassName(name){ // Removes unnecessary characters from class names
+    if(typeof name != undefined){
+        name = name.substring(name.indexOf(":") + 2);
+        if(name.indexOf("Yr") != -1){
+            name = name.substring(0, name.indexOf("Yr") - 1);
+        }
+        return name
+    }else{
+        return undefined
+    }
 }
 
 // Returns an array with all the dates between to dates
@@ -20,72 +31,58 @@ function getDatesBetween(startDate, stopDate) {
     }
     return dateArray;
 }
-<<<<<<< Updated upstream
-=======
 
-// Function that generates HTML for a row of the timetable
-function generatePeriodInfoBox(classObj, doHighlight, minutesOfClassLeft, notesList, dateStringPair){ 
-    // Code that establishes the periodNumberBox and opens the main div
+
+function generatePeriodInfoBox(classObj, doHighlight, minutesOfClassLeft, notesList, dateStringPair){
+    if(doHighlight){
+        var highlightText = "highlightClass"
+        var minutesLeftText = `<h2 class="classData timeData highlightTime">Time left:` + minutesOfClassLeft + ` min</h2>`
+    }else{
+        var highlightText = ""
+        var minutesLeftText = ""
+    }
+
+    if(notesList != undefined){
+        var notesText = `<div class="noteContainer">`
+        for(var notes=0; notes < notesList.length; notes++){
+            notesText += `
+                <div class="note">
+                    <h2 class="noteText">` + notesList[notes].noteContent + `</h2>
+                </div>`
+        }
+        notesText += "</div>"
+    }
+
+
     var htmlString = `
     <tr>
         <div class="dataRow">
             <div class="numberBox tableBox">
                 <h2>` + classObj.period[0] + `</h2>
             </div>
-
-            <div class="periodInfoBox notePeriodInfoBox dataBox tableBox`
-            
-    if(doHighlight){ // Add highlight to box if necessary
-        htmlString += " highlightClass"
-    }
-    htmlString += `">
-            <div class="periodInfoContainer notePeriodInfoContainer">
-                <div class="periodInfo"><h2 class="className classData">` + cleanUpClassName(classObj.className) +  `</h2></div>
-                <div class="periodInfo"><h2 class="location classData">` + classObj.location + `</h2></div>
-                <div class="periodInfo"><h2 class="teacher classData">` + classObj.teacher.toLowerCase() + `</h2></div>
+            <div class="periodInfoBox notePeriodInfoBox dataBox tableBox ` + highlightText + `">
+                <div class="periodInfoContainer notePeriodInfoContainer">
+                    <div class="periodInfo"><h2 class="className classData">` + cleanUpClassName(classObj.className) +  `</h2></div>
+                    <div class="periodInfo"><h2 class="location classData">` + classObj.location + `</h2></div>
+                    <div class="periodInfo"><h2 class="teacher classData">` + classObj.teacher.toLowerCase() + `</h2></div>
+                </div>
+                ` + notesText + `
             </div>
-    `
-
-    if(notesList.length != 0){ // Add any notes present
-        htmlString += `
-            <div class="noteContainer">`
-        for(var notes=0; notes < notesList.length; notes++){
-            htmlString += `
-                <div class="note">
-                    <h2 class="noteText">` + notesList[notes].noteContent + `</h2>
-                </div>`
-        }
-        htmlString += `
+            <div class="periodInfoBox timeBox  dataBox tableBox ` + highlightText + ` hidden">
+                <div class="periodInfoContainer">
+                    <h2 class="startTime classData timeData">Start: ` + dateStringPair[0] +  `</h2>
+                    <h2 class="endTime classData timeData">End: ` + dateStringPair[1] + `</h2>
+                    ` + minutesLeftText + `
+                </div>
             </div>
-        `
-    }
-    // Code for timeBoxes 
-    htmlString += `
         </div>
-        <div class="timeBox periodBox tableBox dataBox`
-    if(doHighlight){
-        htmlString += ` highlightClass`
-    }
-    htmlString += ` highlightCell hidden">
-            <h2 class="startTime classData timeData">Start: ` + dateStringPair[0] +  `</h2>
-            <h2 class="endTime classData timeData">End: ` + dateStringPair[1] + `</h2>`
-
-    if(doHighlight){ // Add highlight classes to timebox if necessary
-        htmlString += `
-            <h2 class="classData timeData highlightTime">Time left:` + minutesOfClassLeft + ` min</h2>`
-    }
-    // Close off final divs
-    htmlString += `
-            </div>
-        </tr>
+    </tr>
     `
     console.log(htmlString)
     return htmlString
 }
 
 
-
->>>>>>> Stashed changes
 // Calculate number of sundays between the two days
 var datesBetween =  getDatesBetween(lastWeekA.addDays(1), today);
 weeksCount = 0;
@@ -168,18 +165,47 @@ else if(!isWeekA){
     statusTextString = dayNames[today.getDay()] + " Week B"
     var displayWeekData = weekBData;
 }
+
+// Get noteData
+var noteData = JSON.parse(localStorage.getItem("notesList"));
+
 // Display the data
 for(var i=0; i<2; i++){
+    if(isWeekA){ // Check through notes for when it is week A
+        var possibleNotes = []
+        for(var notesIndex = 0; notesIndex<noteData.length; notesIndex++){
+            if(noteData[notesIndex].weekType == "anyWeek" || noteData[notesIndex].weekType == "aWeek"){
+                if(noteData[notesIndex].day == "any" || parseInt(noteData[notesIndex].day) == parseInt(today.getDay() + i)){
+                    possibleNotes.push(noteData[notesIndex]);
+                }
+            }
+        }
+    }if(!isWeekA){  // Scan notes only for week B
+        var possibleNotes = []
+        for(var notesIndex = 0; notesIndex<noteData.length; notesIndex++){
+            if(noteData[notesIndex].weekType == "anyWeek" || noteData[notesIndex].weekType == "bWeek"){
+                if(noteData[notesIndex].day == "any" || parseInt(noteData[notesIndex].day) == parseInt(today.getDay() + i)){
+                    possibleNotes.push(noteData[notesIndex])
+                }
+            }
+        }
+    }
     for(var k=0; k<displayWeekData.length; k++){
         if(displayWeekData[k].datePair[0].getDay() == today.getDay() + i){
             var newRow = tables[i].insertRow(-1);
             var periodCell = newRow.insertCell(0);
             var dataCell = newRow.insertCell(1);
             
-            var className = displayWeekData[k].className.substring(displayWeekData[k].className.indexOf(":") + 1)
+            var className = cleanUpClassName(displayWeekData[k].className);
+            var classNotes = [];
+            for(var noteIndex = 0; noteIndex < possibleNotes.length; noteIndex++){
+                if(className == possibleNotes[noteIndex].className || className == possibleNotes[noteIndex].className.substring(0, possibleNotes[noteIndex].className.length - 4)){
+                    classNotes.push(possibleNotes[noteIndex]);
+                }
+            }
             
 
-            var dataCellClassList = "periodBox tableBox dataBox"
+            var highlightCell = false;
             if(i == 0){ // Only calculate what class it is at the time for todays table
                 var startDate = displayWeekData[k].datePair[0];
                 var startTime = new Date(today.getTime());
@@ -189,20 +215,19 @@ for(var i=0; i<2; i++){
                 var endDate = displayWeekData[k].datePair[1];
                 var endTime = new Date(today.getTime());
                 endTime.setHours(endDate.getHours());
-                endTime.setMinutes(endDate.getMinutes());
-                
-                var periodBoxClasses = "periodBox";
+                endTime.setMinutes(endDate.getMinutes());        
     
-                if(startTime < today && endTime > today){
-                    dataCellClassList += " highlightClass"
+                if(startTime < today && endTime > today){ // Generate Period bubble
+                    highlightCell = true;
                     var periodBubble = document.getElementById("periodBubble");
                     periodBubble.innerHTML = `
                     <div class="dataBubble" id="periodBubble">
-                        <h3 class="bubbleText">P` + displayWeekData[k].period + `</h3>
+                        <h3 class="bubbleText">P:` + displayWeekData[k].period + `</h3>
                     </div>
                     `
                 }
             }
+            // Calculate the stringified times for classes starting and ending
             var dateStringPair = [];
             for(var p = 0; p<2; p++){
                 var hour = displayWeekData[k].datePair[p].getHours();
@@ -221,15 +246,10 @@ for(var i=0; i<2; i++){
             }
              var startTimeString = displayWeekData[k].datePair[0].getHours() + ":" + displayWeekData[k].datePair[0].getMinutes()
              var endTimeString = displayWeekData[k].datePair[1].getHours() + ":" + displayWeekData[k].datePair[1].getMinutes()
-            
-            periodCell.innerHTML = `
-            <tr>
-            <div class="numberBox tableBox ">
-                <h2>` + displayWeekData[k].period + `</h2>
-            </div>
-            </tr>`
 
-            if(dataCellClassList.includes("highlight")){
+
+
+            if(highlightCell){ // If the current time is when the class is on (I.E the user is in the middle of the class)
                 var endTime = displayWeekData[k].datePair[1];
                 endTime.setFullYear(today.getFullYear());
                 endTime.setMonth(today.getMonth());
@@ -238,32 +258,10 @@ for(var i=0; i<2; i++){
                 var minutesOfClassLeft =  endTime.getTime() - today.getTime()
                 minutesOfClassLeft = parseInt(minutesOfClassLeft / (1000 * 60))
 
-                dataCell.innerHTML = `
-                <tr>
-                <div class="` + dataCellClassList + `">
-                    <h2 class="className classData">` + className +  `</h2>
-                    <h2 class="location classData">` + displayWeekData[k].location + `</h2>
-                    <h2 class="teacher classData">` + displayWeekData[k].teacher + `</h2>
-                </div>
-                <div class="timeBox ` + dataCellClassList + ` hidden">
-                    <h2 class="classData timeData highlightTime">Start: ` + dateStringPair[0] +  `</h2>
-                    <h2 class="classData timeData highlightTime">End: ` + dateStringPair[1] + `</h2>
-                    <h2 class="classData timeData highlightTime">Time left:` + minutesOfClassLeft + ` min</h2>
-                </div>
-                </tr>`
-            }else{
-                dataCell.innerHTML = `
-                <tr>
-                <div class="` + dataCellClassList + `">
-                    <h2 class="className classData">` + className +  `</h2>
-                    <h2 class="location classData">` + displayWeekData[k].location + `</h2>
-                    <h2 class="teacher classData">` + displayWeekData[k].teacher + `</h2>
-                </div>
-                <div class="timeBox ` + dataCellClassList + ` hidden">
-                    <h2 class="startTime classData timeData">Start: ` + dateStringPair[0] +  `</h2>
-                    <h2 class="endTime classData timeData">End: ` + dateStringPair[1] + `</h2>
-                </div>
-                </tr>`
+                dataCell.innerHTML = generatePeriodInfoBox(displayWeekData[k], true, minutesOfClassLeft, classNotes, dateStringPair)
+                
+            }else{ // If the User is not in any class at time of opening extension
+                dataCell.innerHTML = generatePeriodInfoBox(displayWeekData[k], false, 0, classNotes, dateStringPair)
             }
         }
     }
@@ -292,7 +290,6 @@ for(var i=0; i<datesBetween.length; i++){
 }
 
 var thisweekNumber = parseInt(weeksCount) + parseInt(lastRecordedWeekNumber);
-console.log(thisweekNumber);
 
 var weekBubble = document.getElementById("weekBubble");
 weekBubble.innerHTML = `

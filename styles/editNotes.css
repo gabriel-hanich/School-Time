@@ -1,0 +1,110 @@
+.tableContainer{
+    height: 300px;
+    width: 85%;
+    margin: auto;
+    margin-top: 10px;
+
+    border-radius: 5px;
+}
+
+.noteTableHeading{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    background-color: #797c85;
+
+    text-align: center;
+}
+
+.noteTable{
+    border-radius: 5px;
+    border-top: none;
+    height: 250px;
+    padding-bottom: 20px;
+    overflow-y: scroll;
+}
+
+.noteTableRow{
+    display: flex;
+
+    height: 70px;
+    width: 100%;
+
+    flex-direction: row;
+}
+
+.noteSubject{
+    width: 25%;
+    border-left: #797c85 2px solid;
+}
+
+.noteWeek{
+    width: 15%;
+    text-transform: capitalize;
+}
+
+.noteDay{
+    width: 15%;
+    font-size: 0.5rem;
+
+    padding-top: 10px;
+}
+
+.noteContent{
+    width: 35%;
+}
+
+.noteDelete{
+    width: 10%;
+}
+
+
+.deleteIco{
+    height: 75%;
+    width: 75%;
+    transition: all 0.2s ease;
+}
+
+.deleteIco:hover{
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+.noteData{
+    text-align: center;
+    border-right: #797c85 2px solid;
+    border-bottom: #797c85 2px solid;
+    text-align: center;
+}
+
+.emptyMsg{
+    border-radius: 5px;
+    height: 70px;
+    width: 100%;
+
+    background-color: #dd6868;
+
+    justify-content: center;
+
+    text-align: center;
+}
+
+.addBtn{
+    width: 75px;
+    height: 25px;
+
+    border: none;
+    border-radius: 5px;
+
+    background: #ec008c;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #fc6767, #ec008c);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #fc6767, #ec008c); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    transition: all 0.2s ease;
+}
+
+.addBtn:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+}

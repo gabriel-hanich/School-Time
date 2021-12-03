@@ -1,0 +1,116 @@
+.headingContainer{
+    margin-top: 5px;
+}
+.headingContainer h1{
+    margin-top: 0px;
+}
+
+.addContainer{
+    background-color: #797c85;
+    
+    width: 85%;
+    margin: auto;
+    height: 50px;
+    margin-top: 10px;
+    border-radius: 5px;
+
+}
+
+.addTextContainer{
+    display: flex;
+    flex-direction: row;
+}
+
+.addText{
+    margin-left: 5px;
+}
+
+.optionContainer{
+    margin-top: 7px;
+    margin-left: 5px;
+
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+
+    height: 35px;
+    width: 100px;   
+    
+    text-align: center;
+
+    transition: all 0.5s ease;
+    background: none;
+}
+
+.optionContainer:hover{
+    height: 250px;
+    overflow-y: show;
+}
+.optionButton{
+    margin-bottom: 5px;
+
+    height: 35px;
+    width: 85px;
+
+    background: #ec008c;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #fc6767, #ec008c);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #fc6767, #ec008c); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    border: none;
+    border-radius: 5px;
+
+    transition: all 0.3s ease;
+}
+
+.optionButton:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.classOptionContainer{
+    width: 115px;
+}
+
+.classOptionContainer:hover{
+    overflow-y: scroll;
+}
+
+
+
+.noteContentsContainer{
+    border-radius: 5px;
+    margin-top: 10px;
+    background-color: #797c85;
+    text-align: center;
+}
+
+#contentInput{
+    border-radius: 5px;
+    width: 55%;
+    margin: auto;
+    margin-top: 2px;
+    background: #4568DC; 
+    background: -webkit-linear-gradient(to right, #B06AB3, #4568DC);  
+    background: linear-gradient(to right, #B06AB3, #4568DC);
+    border: none;
+    text-align: center;
+}
+
+#contentInput::placeholder{
+    color: rgb(186, 186, 186);
+}
+
+#submitNoteBtn{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    background-color: #4db068;
+    border: none;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+#submitNoteBtn:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+}

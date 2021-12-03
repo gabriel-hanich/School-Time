@@ -1,43 +1,97 @@
-<<<<<<< Updated upstream
-.periodBox{
-    border-radius: 2px;
-=======
 .dataRow{
     display: flex;
     flex-direction: row;
     overflow-x: hidden;
 }
 
+
 .periodInfoBox{
     flex: 0.95;
     gap: 0.5px;
-    
->>>>>>> Stashed changes
+
     text-align: center;
     font-size: 0.5rem;
-    padding: 0px;
-    margin: 0px;
+    
+    background: #25262c;
+    border-radius: 2px;
+
+    height: 65px;
+    margin-left: 5px;
+    width: 200px;
+
+    overflow: hidden;
+
+    text-transform: capitalize;
+}
+
+.notePeriodInfoBox{
+    display: flex;
+    flex-direction: column;
+
+}
+
+.periodInfoContainer{
+    height: 100%;
     display: flex;
     flex-direction: row;
-    background: #25262c;
-    height: 65px;
+    gap: 0.5px;
+
+}
+
+.notePeriodInfoContainer{
+    height: 65%;
+    flex: 0.65;
+}
+
+
+.noteContainer{
+    height: 35%;
+
+    flex: 0.35;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    gap: 10px;
+}
+
+.note{
+    background: #4568DC; 
+    background: -webkit-linear-gradient(to right, #B06AB3, #4568DC);  
+    background: linear-gradient(to right, #B06AB3, #4568DC);
+    border-radius: 5px;
+    
+    width: 90%;
+    
     padding: 0px;
-    width: 200px;
+    margin: 0px;
+    
+    text-align: center;
+    
+    z-index: 2;
 }
 
-.periodBox h2{
-    color: white;
-    padding-right: 5px;
+.noteText{
+    margin: 0px;
+    padding: 0px;
+    font-size: 0.65rem;
+}
+
+.periodInfoContainer{
+    display: flex;
+    flex-direction: row;
+    gap: 0.5px;
+}
+
+.periodInfo{
     width: 33%;
+    text-align: center;
+    padding: 0px;
+    margin: 0px;
+
+    z-index: 3;
 }
 
-.timeBox h2{
-    width: 50%;
-}
-
-.highlightTime{
-    width: 33%;
-}
 
 .dayHeading{
     background: #3E4C95;
@@ -52,23 +106,29 @@
 }
 
 .numberBox{
+    flex: 0.05;
     border: #25262c 2px solid;
-    border-radius: 2px;
+    border-radius: 4px;
     background: #25262c;
     text-align: center;
-    height: 65px;
-    padding: 0px;
-    margin: 0px;
+    padding: -5px 0px;
+    overflow: hidden;
 }
 
 .numberBox h2{
     color: white;
+    margin-top: 15px;
     font-size: 1rem;
     height: 100%;
 }
 
-.classData{
-    text-transform: capitalize;
+
+.timeBox h2{
+    width: 50%;
+}
+
+.highlightTime{
+    width: 33%;
 }
 
 
