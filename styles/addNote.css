@@ -103,4 +103,15 @@
 
 #submitNoteBtn{
     margin-bottom: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    background-color: #4db068;
+    border: none;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+#submitNoteBtn:hover{
+    cursor: pointer;
+    transform: scale(1.1);
 }

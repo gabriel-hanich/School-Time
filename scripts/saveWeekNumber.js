@@ -5,8 +5,7 @@ submitBtn.addEventListener("click", function(event){
     var weekNumberText = parseInt(weekNumberEntry.value);
 
     var weekArray = [weekNumberText, new Date()];
-    var noteList = JSON.stringify([])
     localStorage.setItem("weekNumber", weekArray);
-    localStorage.setItem("notesList", noteList)
+    localStorage.setItem("notesList", JSON.stringify([]));
     window.location.href = "../pages/display.html";
 });

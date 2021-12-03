@@ -1,22 +1,5 @@
-.setupBtn{
-    background: #2c3e50;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #3498db, #2c3e50);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #3498db, #2c3e50); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    border: none;
-    width: 80px;
-    height: 35px;
-    border-radius: 5px;
-    transition: all 0.5s ease;
-}
-.setupBtn:hover{
-    cursor: pointer;
-    background: #4db068;
-}
-
-
-.stepsContainer{
-    margin: 15px;
-    width: 65%;
+#sentralBtn{
+    margin-top: 50px;
 }
 
 .stepInnerContainer{
@@ -60,8 +43,7 @@
     margin: auto;
 }
 
-.continueBtn{
-    margin: 0px;
-    position: absolute;
-    left: 50%;
+.nextBtn:hover{
+    cursor: pointer;
+    transform: scale(1.1);
 }

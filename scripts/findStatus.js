@@ -1,9 +1,14 @@
 // If the data for week A cannot be found redirect the user to the setup pages
 var weekAData = localStorage.getItem("weekAData");
-var debug = false;
+var noteData = localStorage.getItem("notesList");
+var debug = true;
+
+if(localStorage.getItem("notesList") == undefined){
+    localStorage.setItem("notesList", JSON.stringify([]))
+}
 
 if(debug){
-    window.location.href = "../pages/editNotes.html"
+    window.location.href = "../pages/notesSplit.html"
 }
 else{
     if(weekAData == undefined){

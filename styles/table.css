@@ -5,31 +5,11 @@
 }
 
 
-.periodBox{
+.periodInfoBox{
     flex: 0.95;
     display: flex;
     flex-direction: row;
     gap: 0.5px;
-    
-    text-align: center;
-    font-size: 0.5rem;
-    
-    background: #25262c;
-    border-radius: 2px;
-
-    height: 65px;
-    margin-left: 5px;
-    width: 200px;
-
-    overflow-y: hidden;
-    overflow-x: hidden;
-}
-
-
-.periodInfoBox{
-    flex: 0.95;
-    gap: 0.5px;
-
     text-align: center;
     font-size: 0.5rem;
     
@@ -41,6 +21,8 @@
     width: 200px;
 
     overflow: hidden;
+
+    text-transform: capitalize;
 }
 
 .notePeriodInfoBox{

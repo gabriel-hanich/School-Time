@@ -4,7 +4,7 @@ if (noteData == null || noteData == undefined){
 }
 var noteTable = document.getElementById("noteTable");
 if(noteData.length != 0){
-    dayDict = {"any":"Any",1: "Monday", 2:"Tuesday", 3:"Wednesday", 4:"Thursday", 6:"Friday"};
+    dayDict = {"any":"Any", 1: "Monday", 2:"Tuesday", 3:"Wednesday", 4:"Thursday", 5:"Friday"};
     
     for(var i=0; i<noteData.length; i++){
         var thisTableRow = document.createElement("div");
